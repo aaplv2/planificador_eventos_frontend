@@ -1,11 +1,11 @@
 import React from "react";
 
-function Main() {
+function Button() {
   return (
     <div>
-      <p>Main</p>
+      <p>Button</p>
     </div>
   );
 }
 
-export default Main;
+export default Button;

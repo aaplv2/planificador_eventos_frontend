@@ -4,7 +4,7 @@ import React from "react";
 //estilos
 import "./App.css";
 
-//components
+//componentes
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";

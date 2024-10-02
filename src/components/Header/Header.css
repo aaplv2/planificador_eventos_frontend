@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(125, 24, 22);
+}
+
+.header__logo {
+  align-self: center;
+  max-width: 100%;
+  max-height: 30px;
+}
+
+.header__nav {
+  max-width: 100%;
+}

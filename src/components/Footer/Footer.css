@@ -1,0 +1,34 @@
+.footer {
+  background-color: #aaa8a8;
+}
+
+.footer__media {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  padding: 20px 20px 0px;
+}
+
+
+
+.footer__about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.footer__about-title {
+  margin: 0%;
+}
+
+.footer__about-mail {
+  color: #7d1816;
+  cursor: pointer;
+}
+
+.footer__about-mail:hover {
+  color: #ffffff;
+  opacity: 50%;
+}

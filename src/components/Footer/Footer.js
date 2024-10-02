@@ -30,6 +30,14 @@ function Footer() {
             bgColor="none"
           ></SocialIcon>
         </li>
+        <li className="footer__media-item">
+          <SocialIcon
+            className="footer__media-spotify"
+            url="http://open.spotify.com/user/swingtiago"
+            fgColor="#fff"
+            bgColor="none"
+          ></SocialIcon>
+        </li>
       </ul>
       <div className="footer__about">
         <p className="footer__about-title">

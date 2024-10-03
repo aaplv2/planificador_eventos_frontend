@@ -1,42 +1,37 @@
 import React from "react";
-import { SocialIcon } from "react-social-icons";
-import "react-social-icons/instagram";
+import {
+  IconBrandFacebook,
+  IconBrandInstagram,
+  IconBrandSpotify,
+  IconBrandYoutube,
+} from "@tabler/icons-react";
 
 function Footer() {
   return (
     <div className="footer">
       <ul className="footer__media">
         <li className="footer__media-item">
-          <SocialIcon
-            className="footer__media-instagram"
-            url="https://instagram.com/swingtiago"
-            fgColor="#fff"
-            bgColor="none"
-          ></SocialIcon>
+          <a title="Instagram" href="https://instagram.com/swingtiago">
+            <IconBrandInstagram />
+          </a>
         </li>
         <li className="footer__media-item">
-          <SocialIcon
-            className="footer__media-facebook"
-            url="https://www.facebook.com/swingtiago"
-            fgColor="#fff"
-            bgColor="none"
-          ></SocialIcon>
+          <a title="Facebook" href="https://www.facebook.com/swingtiago">
+            <IconBrandFacebook />
+          </a>
         </li>
         <li className="footer__media-item">
-          <SocialIcon
-            className="footer__media-youtube"
-            url="https://www.youtube.com/channel/UCghhZJLAiRz6dyNo8vvmYMw"
-            fgColor="#fff"
-            bgColor="none"
-          ></SocialIcon>
+          <a
+            title="Youtube"
+            href="https://www.youtube.com/channel/UCghhZJLAiRz6dyNo8vvmYMw"
+          >
+            <IconBrandYoutube />
+          </a>
         </li>
         <li className="footer__media-item">
-          <SocialIcon
-            className="footer__media-spotify"
-            url="http://open.spotify.com/user/swingtiago"
-            fgColor="#fff"
-            bgColor="none"
-          ></SocialIcon>
+          <a title="Spotify" href="http://open.spotify.com/user/swingtiago">
+            <IconBrandSpotify />
+          </a>
         </li>
       </ul>
       <div className="footer__about">

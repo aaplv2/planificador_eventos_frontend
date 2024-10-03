@@ -6,7 +6,7 @@ function EventCard() {
   return (
     <div className="eventCard">
       <div className="eventCard__titles">
-        <p className="eventCard__titles-subtitle">Próximo Evento</p>
+        <p className="eventCard__titles-subtitle">Próximo Evento:</p>
         <p className="eventCard__titles-title">Título del evento</p>
       </div>
       <div className="eventCard__event">

@@ -13,6 +13,7 @@ import Popout from "./components/Popout/Popout";
 import { Button } from "./components/Button/Button";
 import Preloader from "./components/Preloader/Preloader";
 import Event from "./components/Event/Event";
+import Signup from "./components/Signup/Signup";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/event" element={<Event />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
       <Footer />
       <Popout />

@@ -1,26 +1,26 @@
-.eventCard__titles {
+.event-card__titles {
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
 
-.eventCard__titles-subtitle{
+.event-card__titles-subtitle{
   margin: 10px 0px;
 }
 
-.eventCard__titles-title{
+.event-card__titles-title{
   margin: 10px 0px;
 }
 
 
-.eventCard__event-image {
+.event-card__event-image {
   max-width: 100px;
   max-height: 100px;
   float: left;
   margin: 3px;
 }
 
-.eventCard__event-description {
+.event-card__event-description {
   text-align: justify;
   margin: 0;
 }

@@ -4,18 +4,18 @@ import imageMainEventPath from "../../images/PRUEBA_proximo_evento.jpg";
 
 function EventCard() {
   return (
-    <div className="eventCard">
-      <div className="eventCard__titles">
-        <p className="eventCard__titles-subtitle">Próximo Evento:</p>
-        <p className="eventCard__titles-title">Título del evento</p>
+    <div className="event-card">
+      <div className="event-card__titles">
+        <p className="event-card__titles-subtitle">Próximo Evento:</p>
+        <p className="event-card__titles-title">Título del evento</p>
       </div>
-      <div className="eventCard__event">
+      <div className="event-card__event">
         <img
-          className="eventCard__event-image"
+          className="event-card__event-image"
           src={imageMainEventPath}
           alt="Próximo evento"
         />
-        <p className="eventCard__event-description">
+        <p className="event-card__event-description">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s, when an unknown printer took a galley of type and

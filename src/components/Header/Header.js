@@ -10,9 +10,9 @@ function Header() {
     <header className="header">
       <img className="header__logo" alt="Logo Swingtiago" src={logoMain1Path} />
       <nav className="header__nav">
-        <Navigation></Navigation>
+        <Navigation/>
       </nav>
-      <Button></Button>
+      <Button/>
     </header>
   );
 }

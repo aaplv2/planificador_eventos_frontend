@@ -9,9 +9,6 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
-import Popout from "./components/Popout/Popout";
-import { Button } from "./components/Button/Button";
-import Preloader from "./components/Preloader/Preloader";
 import Event from "./components/Event/Event";
 import Signup from "./components/Signup/Signup";
 
@@ -25,9 +22,6 @@ function App() {
         <Route path="/signup" element={<Signup />} />
       </Routes>
       <Footer />
-      <Popout />
-      <Button />
-      <Preloader />
     </div>
   );
 }

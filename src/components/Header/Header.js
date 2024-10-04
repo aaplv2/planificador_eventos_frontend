@@ -4,6 +4,7 @@ import Navigation from "../Navigation/Navigation";
 
 import logoMain1Path from "../../images/swtgo_2@2x.png";
 import { Button } from "../Button/Button";
+import { IconMenu } from "@tabler/icons-react";
 
 function Header() {
   return (
@@ -12,7 +13,9 @@ function Header() {
       <nav className="header__nav">
         <Navigation/>
       </nav>
-      <Button/>
+      <Button variant="ghost">
+        <IconMenu/>
+      </Button>
     </header>
   );
 }

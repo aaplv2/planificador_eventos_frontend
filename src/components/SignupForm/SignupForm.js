@@ -12,7 +12,7 @@ import {
 } from "../Form/Form";
 import { Input } from "../Input/Input";
 
-export default function RegisterForm() {
+export default function SignupForm() {
   // 1. Define your form.
   const form = useForm({
     defaultValues: {
@@ -35,15 +35,15 @@ export default function RegisterForm() {
           name="username"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>Crea una cuenta</FormLabel>
               <FormControl>
                 <Input placeholder="Nombre" {...field} />
               </FormControl>
               <FormControl>
-                <Input placeholder="Email" {...field} />
+                <Input placeholder="Contraseña" {...field} />
               </FormControl>
               <FormControl>
-                <Input placeholder="Telefono" {...field} />
+                <Input placeholder="Contraseña" {...field} />
               </FormControl>
               <FormDescription>
                 This is your public display name.

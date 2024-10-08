@@ -17,7 +17,7 @@ function EventCard() {
     <div className="event-card">
       <div className="event-card__titles">
         <p className="event-card__titles-subtitle">Próximo Evento:</p>
-        <p className="event-card__titles-title">Título del evento</p>
+        <h2 className="event-card__titles-title">Título del evento</h2>
       </div>
       <div className="event-card__event">
         <img
@@ -39,39 +39,23 @@ function EventCard() {
       </div>
       <div className="event-details">
         <Table>
-          <TableCaption>A list of your recent invoices.</TableCaption>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[100px]">Invoice</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Method</TableHead>
-              <TableHead className="text-right">Amount</TableHead>
-            </TableRow>
-          </TableHeader>
+          <TableHeader></TableHeader>
           <TableBody>
             <TableRow>
-              <TableCell className="font-medium">INV001</TableCell>
-              <TableCell>Paid</TableCell>
-              <TableCell>Credit Card</TableCell>
-              <TableCell className="text-right">$250.00</TableCell>
+              <TableCell className="font-medium">Hora</TableCell>
+              <TableCell>19:00</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className="font-medium">INV001</TableCell>
-              <TableCell>Paid</TableCell>
-              <TableCell>Credit Card</TableCell>
-              <TableCell className="text-right">$250.00</TableCell>
+              <TableCell className="font-medium">Lugar</TableCell>
+              <TableCell>Direccion 878, barrio</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className="font-medium">INV001</TableCell>
-              <TableCell>Paid</TableCell>
-              <TableCell>Credit Card</TableCell>
-              <TableCell className="text-right">$250.00</TableCell>
+              <TableCell className="font-medium">Valor</TableCell>
+              <TableCell>$10000</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className="font-medium">INV001</TableCell>
-              <TableCell>Paid</TableCell>
-              <TableCell>Credit Card</TableCell>
-              <TableCell className="text-right">$250.00</TableCell>
+              <TableCell className="font-medium">Cupos</TableCell>
+              <TableCell>59/100</TableCell>
             </TableRow>
           </TableBody>
         </Table>

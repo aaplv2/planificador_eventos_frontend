@@ -10,39 +10,37 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../Carousel/Carousel";
+import EditEventPopout from "../EditEventPopout/EditEventPopout";
 
 function Main() {
   return (
     <div className="main">
       <EventCard />
-
-      <Calendar
-        mode="single"
-        className="rounded-md border"
-        
-      />
-
-      <Carousel className="w-full max-w-sm">
-        <CarouselContent>
-          <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-            ... uno
-          </CarouselItem>
-          <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-            ... dos
-          </CarouselItem>
-          <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-            ... tres
-          </CarouselItem>
-          <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-            ... tres
-          </CarouselItem>
-          <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-            ... tres
-          </CarouselItem>
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
+      <Calendar mode="single" className="rounded-md border" />
+      <div className="carousel">
+        <Carousel className="w-full max-w-sm">
+          <CarouselContent>
+            <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+              ... uno
+            </CarouselItem>
+            <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+              ... dos
+            </CarouselItem>
+            <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+              ... tres
+            </CarouselItem>
+            <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+              ... tres
+            </CarouselItem>
+            <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+              ... tres
+            </CarouselItem>
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </div>
+      <EditEventPopout />
     </div>
   );
 }

@@ -3,9 +3,7 @@ import React from "react";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableHead,
   TableHeader,
   TableRow,
 } from "../Table/Table";

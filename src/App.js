@@ -12,6 +12,7 @@ import Footer from "./components/Footer/Footer";
 import Event from "./components/Event/Event";
 import Signup from "./components/Signup/Signup";
 import Signin from "./components/Signin/Signin";
+import Success from "./components/Success/Success";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/event" element={<Event />} />
+        <Route path="/event/success" element={<Success />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
       </Routes>

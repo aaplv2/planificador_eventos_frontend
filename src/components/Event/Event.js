@@ -6,10 +6,12 @@ import EditEventPopout from "../EditEventPopout/EditEventPopout";
 import AttendeesTable from "../AttendeesTable/AttendeesTable";
 import AddTaskPopout from "../AddTaskPopout/AddTaskPopout";
 import Map from "../Map/Map";
+import Profile from "../Profile/Profile";
 
 function Event() {
   return (
     <div className="event">
+      <Profile />
       <EventCard />
       <RegisterForm />
       <Map />

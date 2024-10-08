@@ -11,10 +11,12 @@ import {
   CarouselPrevious,
 } from "../Carousel/Carousel";
 import EditEventPopout from "../EditEventPopout/EditEventPopout";
+import Profile from "../Profile/Profile";
 
 function Main() {
   return (
     <div className="main">
+      <Profile />
       <EventCard />
       <Calendar mode="single" className="rounded-md border" />
       <div className="carousel">

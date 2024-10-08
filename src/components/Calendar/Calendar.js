@@ -1,16 +1,31 @@
-"use client";
-
 import * as React from "react";
 import { IconSignLeft, IconSignRight } from "@tabler/icons-react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
+import { useNavigate } from "react-router-dom";
 
 import { cn } from "../../lib/utils";
 import { buttonVariants } from "../Button/Button";
 
 function Calendar({ className, classNames, showOutsideDays = true, ...props }) {
+  const [selectedDay, setSelectedDay] = React.useState();
+
+  const navigate = useNavigate();
+
+  const handleDayClick = (day) => {
+    setSelectedDay(day);
+    navigate("/event")
+  };
+
   return (
     <DayPicker
+      selected={selectedDay}
+      onSelect={handleDayClick}
+      footer={
+        selectedDay
+          ? `Selected: ${selectedDay.toLocaleDateString()}`
+          : "Pick a day."
+      }
       showOutsideDays={showOutsideDays}
       className={cn("p-3", className)}
       classNames={{

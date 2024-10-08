@@ -16,7 +16,11 @@ function Main() {
     <div className="main">
       <EventCard />
 
-      <Calendar mode="single" className="rounded-md border" />
+      <Calendar
+        mode="single"
+        className="rounded-md border"
+        
+      />
 
       <Carousel className="w-full max-w-sm">
         <CarouselContent>

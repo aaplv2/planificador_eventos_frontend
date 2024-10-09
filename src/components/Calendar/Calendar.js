@@ -14,7 +14,9 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }) {
 
   const handleDayClick = (day) => {
     setSelectedDay(day);
-    navigate("/event")
+    const date = day.toLocaleDateString();
+    const dateToURL = encodeURIComponent(date);
+    navigate("/event/" + dateToURL);
   };
 
   return (

@@ -11,17 +11,16 @@ import {
 import { Input } from "../Input/Input";
 
 export default function RegisterForm() {
-  // 1. Define your form.
   const form = useForm({
     defaultValues: {
-      username: "",
+      name: "",
+      email: "",
+      phone: "",
     },
   });
 
   // 2. Define a submit handler.
   function onSubmit(values) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
     console.log(values);
   }
 
@@ -30,12 +29,12 @@ export default function RegisterForm() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-1">
         <FormField
           control={form.control}
-          name="username"
+          name="name"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Nombre</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input id="name" {...field} />
               </FormControl>
             </FormItem>
           )}
@@ -47,7 +46,7 @@ export default function RegisterForm() {
             <FormItem>
               <FormLabel>Correo electrónico</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input id="email" {...field} />
               </FormControl>
             </FormItem>
           )}
@@ -59,7 +58,7 @@ export default function RegisterForm() {
             <FormItem>
               <FormLabel>Teléfono</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input id="phone" {...field} />
               </FormControl>
             </FormItem>
           )}

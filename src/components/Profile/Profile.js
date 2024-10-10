@@ -10,6 +10,7 @@ function Profile() {
   //   updateUsername: state.username,
   //   updateEmail: state.email,
   // }));
+  
   return (
     <div className="profile">
       <h2 className="profile-username">{username}</h2>

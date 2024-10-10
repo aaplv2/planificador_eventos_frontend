@@ -1,4 +1,7 @@
 import { useForm } from "react-hook-form";
+import { useProfileStore } from "../../stores/profileStore";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { profileSchema } from "../../schemas/ProfileSchema";
 
 import {
   Sheet,
@@ -15,27 +18,24 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
 } from "../Form/Form";
 import { Button } from "../Button/Button";
 import { Input } from "../Input/Input";
-import { useProfileStore } from "../../stores/profileStore";
 
 export function EditProfileSheet() {
   const update = useProfileStore((state) => state.update);
-  // const { updateUsername, updateEmail } = useProfileStore((state) => ({
-  //   updateUsername: state.updateUsername,
-  //   updateEmail: state.updateEmail,
-  // }));
 
   const form = useForm({
     defaultValues: {
       username: "",
       email: "",
     },
+    resolver: yupResolver(profileSchema),
+    mode: "onChange",
   });
 
   function onSubmit(data) {
-    console.log(data);
     update(data.username, data.email);
   }
 
@@ -58,8 +58,9 @@ export function EditProfileSheet() {
                   <FormItem className="grid grid-cols-4 items-center gap-4">
                     <FormLabel className="text-right">Nombre</FormLabel>
                     <FormControl>
-                      <Input className="col-span-3" {...field} />
+                      <Input id="username" className="col-span-3" {...field} />
                     </FormControl>
+                    <FormMessage className="col-span-full col-start-2" />
                   </FormItem>
                 )}
               />
@@ -72,14 +73,17 @@ export function EditProfileSheet() {
                       Correo electrónico
                     </FormLabel>
                     <FormControl>
-                      <Input className="col-span-3" {...field} />
+                      <Input id="email" className="col-span-3" {...field} />
                     </FormControl>
+                    <FormMessage className="col-span-full col-start-2" />
                   </FormItem>
                 )}
               />
               <SheetFooter>
                 <SheetClose asChild>
-                  <Button type="submit">Confirmar</Button>
+                  <Button type="submit" disabled={!form.formState.isValid}>
+                    Confirmar
+                  </Button>
                 </SheetClose>
               </SheetFooter>
             </form>

@@ -1,4 +1,5 @@
 import React from "react";
+import { useRegisterStore } from "../../stores/registerStore";
 
 import {
   Table,
@@ -10,6 +11,10 @@ import {
 } from "../Table/Table";
 
 function AttendeesTable() {
+  const name = useRegisterStore((state) => state.name);
+  const email = useRegisterStore((state) => state.email);
+  const phone = useRegisterStore((state) => state.phone);
+
   return (
     <Table>
       <TableHeader>

@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { useRegisterStore } from "../../stores/registerStore";
 
 import { Button } from "../Button/Button";
 import {
@@ -11,6 +12,8 @@ import {
 import { Input } from "../Input/Input";
 
 export default function RegisterForm() {
+  const update = useRegisterStore((state) => state.update);
+
   const form = useForm({
     defaultValues: {
       name: "",
@@ -21,7 +24,7 @@ export default function RegisterForm() {
 
   // 2. Define a submit handler.
   function onSubmit(values) {
-    console.log(values);
+    update(values.name, values.email, values.phone);
   }
 
   return (

@@ -35,8 +35,8 @@ export function EditProfileSheet() {
     mode: "onChange",
   });
 
-  function onSubmit(data) {
-    update(data.username, data.email);
+  function onSubmit(values) {
+    update(values.username, values.email);
   }
 
   return (

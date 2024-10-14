@@ -6,11 +6,7 @@ import { useProfileStore } from "../../stores/profileStore";
 function Profile() {
   const username = useProfileStore((state) => state.username);
   const email = useProfileStore((state) => state.email);
-  // const { username, email } = useProfileStore((state) => ({
-  //   updateUsername: state.username,
-  //   updateEmail: state.email,
-  // }));
-  
+
   return (
     <div className="profile">
       <h2 className="profile-username">{username}</h2>

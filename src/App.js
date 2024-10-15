@@ -21,8 +21,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/events/" element={<Events />} />
-        <Route path="/events/:id" element={<Event />} />
+        <Route path="/events/:date" element={<Events />} />
+        <Route path="/events/:date/:id" element={<Event />} />
         <Route path="/events/success" element={<Success />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />

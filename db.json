@@ -17,6 +17,14 @@
       "slots": "10/20"
     },
     {
+      "title": "Evento Test 6",
+      "date": "05/10/2024",
+      "time": "11:00",
+      "location": "Direccion Test 6",
+      "price": "3000",
+      "slots": "12/20"
+    },
+    {
       "title": "Evento Test",
       "date": "12/10/2024",
       "time": "19:00",

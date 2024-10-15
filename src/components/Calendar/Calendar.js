@@ -13,25 +13,20 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }) {
 
   const navigate = useNavigate();
 
-  const update = useEventStore((state) => state.update);
+  const updateEvents = useEventStore((state) => state.updateEvents);
 
   const handleDayClick = (day) => {
     setSelectedDay(day);
     const date = day.toLocaleDateString();
     const dateToURL = encodeURIComponent(date);
     getEventsByDate(dateToURL).then((events) => {
-      events.map((data) => {
-        update(
-          data.title,
-          data.date,
-          data.time,
-          data.location,
-          data.price,
-          data.slots
-        );
-      });
+      updateEvents(events);
+      if (events.length === 1) {
+        navigate("/events/" + dateToURL + "/" + events[0].id);
+      } else {
+        navigate("/events/" + dateToURL);
+      }
     });
-    navigate("/events/" + dateToURL);
   };
 
   return (

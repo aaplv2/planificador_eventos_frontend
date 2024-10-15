@@ -1,0 +1,44 @@
+{
+  "events": [
+    {
+      "title": "Evento Test 3",
+      "date": "05/10/2024",
+      "time": "11:00",
+      "location": "Direccion Test 3",
+      "price": "0",
+      "slots": "0/0"
+    },
+    {
+      "title": "Evento Test 4",
+      "date": "05/10/2024",
+      "time": "16:00",
+      "location": "Direccion Test 4",
+      "price": "0",
+      "slots": "10/20"
+    },
+    {
+      "title": "Evento Test",
+      "date": "12/10/2024",
+      "time": "19:00",
+      "location": "Direccion Test 1",
+      "price": "12000",
+      "slots": "39/70"
+    },
+    {
+      "title": "Evento Test 2",
+      "date": "12/10/2024",
+      "time": "17:00",
+      "location": "Direccion Test 2",
+      "price": "2000",
+      "slots": "3/20"
+    },
+    {
+      "title": "Evento Test 5",
+      "date": "18/10/2024",
+      "time": "21:00",
+      "location": "Direccion Test 5",
+      "price": "7000",
+      "slots": "45/100"
+    }
+  ]
+}

@@ -9,13 +9,21 @@ import {
 } from "../Table/Table";
 
 import imageMainEventPath from "../../images/PRUEBA_proximo_evento.jpg";
+import { useEventStore } from "../../stores/eventStore";
 
 function EventCard() {
+  const title = useEventStore((state) => state.title);
+  const date = useEventStore((state) => state.date);
+  const time = useEventStore((state) => state.time);
+  const location = useEventStore((state) => state.location);
+  const price = useEventStore((state) => state.price);
+  const slots = useEventStore((state) => state.slots);
+
   return (
     <div className="event-card">
       <div className="event-card__titles">
         <p className="event-card__titles-subtitle">Próximo Evento:</p>
-        <h2 className="event-card__titles-title">Título del evento</h2>
+        <h2 className="event-card__titles-title">{title}</h2>
       </div>
       <div className="event-card__event">
         <img
@@ -41,19 +49,21 @@ function EventCard() {
           <TableBody>
             <TableRow>
               <TableCell className="font-medium">Hora</TableCell>
-              <TableCell>19:00</TableCell>
+              <TableCell>
+                {date}, {time}
+              </TableCell>
             </TableRow>
             <TableRow>
               <TableCell className="font-medium">Lugar</TableCell>
-              <TableCell>Direccion 878, barrio</TableCell>
+              <TableCell>{location}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell className="font-medium">Valor</TableCell>
-              <TableCell>$10000</TableCell>
+              <TableCell>{price}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell className="font-medium">Cupos</TableCell>
-              <TableCell>59/100</TableCell>
+              <TableCell>{slots}</TableCell>
             </TableRow>
           </TableBody>
         </Table>

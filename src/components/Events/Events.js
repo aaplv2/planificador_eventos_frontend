@@ -20,8 +20,18 @@ function Events() {
     <div className="event">
       <Profile />
       {events &&
-        events.map((data) => {
-          return <EventCard key={data.id} title={data.title} />;
+        events.map((event) => {
+          return (
+            <EventCard
+              key={event.id}
+              title={event.title}
+              date={event.date}
+              time={event.time}
+              location={event.location}
+              price={event.price}
+              slots={event.slots}
+            />
+          );
         })}
     </div>
   );

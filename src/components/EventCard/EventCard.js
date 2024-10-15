@@ -10,7 +10,15 @@ import {
 
 import imageMainEventPath from "../../images/PRUEBA_proximo_evento.jpg";
 
-function EventCard({ title, date, time, location, price, slots, showTable = false }) {
+function EventCard({
+  title,
+  date,
+  time,
+  location,
+  price,
+  slots,
+  showTable = false,
+}) {
   return (
     <div className="event-card">
       <div className="event-card__titles">
@@ -42,19 +50,21 @@ function EventCard({ title, date, time, location, price, slots, showTable = fals
             <TableBody>
               <TableRow>
                 <TableCell className="font-medium">Hora</TableCell>
-                <TableCell>hora</TableCell>
+                <TableCell>
+                  {date}, {time}
+                </TableCell>
               </TableRow>
               <TableRow>
                 <TableCell className="font-medium">Lugar</TableCell>
-                <TableCell>wdww</TableCell>
+                <TableCell>{location}</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell className="font-medium">Valor</TableCell>
-                <TableCell>dwadwa</TableCell>
+                <TableCell>{price}</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell className="font-medium">Cupos</TableCell>
-                <TableCell>dfsfds</TableCell>
+                <TableCell>{slots}</TableCell>
               </TableRow>
             </TableBody>
           </Table>

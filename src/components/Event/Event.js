@@ -24,7 +24,16 @@ function Event() {
   return (
     <div className="event">
       <Profile />
-      <EventCard title={event.title} showTable />
+      <EventCard
+        title={event.title}
+        key={event.id}
+        date={event.date}
+        time={event.time}
+        location={event.location}
+        price={event.price}
+        slots={event.slots}
+        showTable
+      />
       <RegisterForm />
       <Map />
       <AttendeesTable />

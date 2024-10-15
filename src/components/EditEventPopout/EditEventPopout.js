@@ -111,8 +111,9 @@ function EditEventPopout() {
                 </FormItem>
               )}
             />
+            <Button>Subir Imagen</Button>
             <Button type="submit">Confirmar</Button>
-            <Button type="submit">Cancelar</Button>
+            <Button>Cancelar</Button>
           </form>
         </Form>
       </DialogContent>

@@ -22,7 +22,6 @@ export default function RegisterForm() {
     },
   });
 
-  // 2. Define a submit handler.
   function onSubmit(values) {
     update(values.name, values.email, values.phone);
   }

@@ -1,5 +1,4 @@
-import React from "react";
-import { useRegisterStore } from "../../stores/registerStore";
+import React, { useEffect, useState } from "react";
 
 import {
   Table,
@@ -10,10 +9,19 @@ import {
   TableRow,
 } from "../Table/Table";
 
+import { useParams } from "react-router-dom";
+import { getEventById } from "../../actions/getEventById";
+
 function AttendeesTable() {
-  const name = useRegisterStore((state) => state.name);
-  const email = useRegisterStore((state) => state.email);
-  const phone = useRegisterStore((state) => state.phone);
+  const { id } = useParams();
+
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    getEventById(id).then((events) => {
+      setEvents(events);
+    });
+  }, []);
 
   return (
     <Table>
@@ -26,24 +34,16 @@ function AttendeesTable() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        <TableRow>
-          <TableCell className="font-medium">Andres P</TableCell>
-          <TableCell>Pagado</TableCell>
-          <TableCell>12345678</TableCell>
-          <TableCell className="text-right">test1@test.com</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell className="font-medium">INV002</TableCell>
-          <TableCell>Pendiente</TableCell>
-          <TableCell>12345678</TableCell>
-          <TableCell className="text-right">test2@test.com</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell className="font-medium">INV003</TableCell>
-          <TableCell>Paid</TableCell>
-          <TableCell>12345678</TableCell>
-          <TableCell className="text-right">test3@test.com</TableCell>
-        </TableRow>
+        {events.map((event) =>
+          event.attendees.map((attendee, index) => (
+            <TableRow key={index}>
+              <TableCell className="font-medium">{attendee.name}</TableCell>
+              <TableCell>{attendee.status}</TableCell>
+              <TableCell>{attendee.phone}</TableCell>
+              <TableCell className="text-right">{attendee.email}</TableCell>
+            </TableRow>
+          ))
+        )}
       </TableBody>
     </Table>
   );

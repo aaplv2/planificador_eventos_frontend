@@ -6,7 +6,29 @@
       "time": "11:00",
       "location": "Direccion Test 3",
       "price": "0",
-      "slots": "0/0"
+      "slots": "0/0",
+      "description": "",
+      "image": "",
+      "attendees": [
+        {
+          "name": "Asistente 1",
+          "status": "Pendiente",
+          "phone": "29382918",
+          "email": "test1@email.com"
+        },
+        {
+          "name": "Asistente 2",
+          "status": "Pagado",
+          "phone": "29384342918",
+          "email": "test2@email.com"
+        },
+        {
+          "name": "Asistente 3",
+          "status": "Pendiente",
+          "phone": "2933829418",
+          "email": "test3@email.com"
+        }
+      ]
     },
     {
       "title": "Evento Test 4",
@@ -14,7 +36,10 @@
       "time": "16:00",
       "location": "Direccion Test 4",
       "price": "0",
-      "slots": "10/20"
+      "slots": "10/20",
+      "description": "",
+      "image": "",
+      "attendees": []
     },
     {
       "title": "Evento Test 6",
@@ -22,7 +47,10 @@
       "time": "11:00",
       "location": "Direccion Test 6",
       "price": "3000",
-      "slots": "12/20"
+      "slots": "12/20",
+      "description": "",
+      "image": "",
+      "attendees": []
     },
     {
       "title": "Evento Test",
@@ -30,7 +58,10 @@
       "time": "19:00",
       "location": "Direccion Test 1",
       "price": "12000",
-      "slots": "39/70"
+      "slots": "39/70",
+      "description": "",
+      "image": "",
+      "attendees": []
     },
     {
       "title": "Evento Test 2",
@@ -38,7 +69,10 @@
       "time": "17:00",
       "location": "Direccion Test 2",
       "price": "2000",
-      "slots": "3/20"
+      "slots": "3/20",
+      "description": "",
+      "image": "",
+      "attendees": []
     },
     {
       "title": "Evento Test 5",
@@ -46,7 +80,10 @@
       "time": "21:00",
       "location": "Direccion Test 5",
       "price": "7000",
-      "slots": "45/100"
+      "slots": "45/100",
+      "description": "",
+      "image": "",
+      "attendees": []
     }
   ]
 }

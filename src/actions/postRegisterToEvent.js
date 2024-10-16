@@ -7,6 +7,5 @@ export async function postRegisterToEvent(body, id) {
     body: JSON.stringify(body),
   });
   const data = await response.json();
-  console.log(data)
   return data;
 }

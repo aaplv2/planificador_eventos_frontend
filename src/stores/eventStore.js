@@ -2,7 +2,7 @@ import { create } from "zustand";
 
 export const useEventStore = create((set) => ({
   events: [],
-  updateEvents: (newEvents) =>
+  update: (newEvents) =>
     set(() => ({
       events: newEvents,
     })),

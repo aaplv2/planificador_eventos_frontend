@@ -11,8 +11,11 @@ import {
 
 import { useParams } from "react-router-dom";
 import { getEventById } from "../../actions/getEventById";
+import { useEventStore } from "../../stores/eventStore";
 
 function AttendeesTable() {
+  const event = useEventStore((state) => console.log(state));
+
   const { id } = useParams();
 
   const [events, setEvents] = useState([]);

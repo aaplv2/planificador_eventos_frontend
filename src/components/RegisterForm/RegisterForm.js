@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { useRegisterStore } from "../../stores/registerStore";
 
 import { Button } from "../Button/Button";
 import {
@@ -14,9 +13,10 @@ import { postRegisterToEvent } from "../../actions/postRegisterToEvent";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getEventById } from "../../actions/getEventById";
+import { useEventStore } from "../../stores/eventStore";
 
 export default function RegisterForm() {
-  const update = useRegisterStore((state) => state.update);
+  const update = useEventStore((state) => state.update);
 
   const { id } = useParams();
 
@@ -38,7 +38,7 @@ export default function RegisterForm() {
   }, [counter]);
 
   function onSubmit(values) {
-    update(values.name, values.email, values.phone);
+    update([]);
     postRegisterToEvent({ attendees: [...events.attendees, values] }, id);
     setCounter(counter + 1);
   }

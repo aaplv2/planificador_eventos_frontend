@@ -44,15 +44,18 @@
       "id": "9a88"
     },
     {
-      "title": "Evento Test",
-      "date": "12/10/2024",
-      "time": "19:00",
-      "location": "Direccion Test 1",
-      "price": "12000",
-      "slots": "39/70",
-      "description": "",
-      "image": "",
-      "attendees": [],
+      "attendees": [
+        {
+          "name": "nombre test",
+          "email": "nombretest@test.com",
+          "phone": "9292929"
+        },
+        {
+          "name": "nombre test 2",
+          "email": "nombretest2@test.com",
+          "phone": "92929292"
+        }
+      ],
       "id": "35a0"
     },
     {

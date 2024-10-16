@@ -10,9 +10,18 @@ import {
   FormLabel,
 } from "../Form/Form";
 import { Input } from "../Input/Input";
+import { postRegisterToEvent } from "../../actions/postRegisterToEvent";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getEventById } from "../../actions/getEventById";
 
 export default function RegisterForm() {
   const update = useRegisterStore((state) => state.update);
+
+  const { id } = useParams();
+
+  const [events, setEvents] = useState([]);
+  const [counter, setCounter] = useState(0);
 
   const form = useForm({
     defaultValues: {
@@ -22,8 +31,16 @@ export default function RegisterForm() {
     },
   });
 
+  useEffect(() => {
+    getEventById(id).then((events) => {
+      setEvents(events[0]);
+    });
+  }, [counter]);
+
   function onSubmit(values) {
     update(values.name, values.email, values.phone);
+    postRegisterToEvent({ attendees: [...events.attendees, values] }, id);
+    setCounter(counter + 1);
   }
 
   return (

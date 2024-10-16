@@ -5,12 +5,14 @@ import { Calendar } from "../Calendar/Calendar";
 import EditEventPopout from "../EditEventPopout/EditEventPopout";
 import Profile from "../Profile/Profile";
 import EventsCarousel from "../EventsCarousel/EventsCarousel";
+import { Button } from "../Button/Button";
 
 function Main() {
   return (
     <div className="main">
       <Profile />
       <EventCard />
+      <Button>Ver Mas..</Button>
       <div className="main-calendar">
         <Calendar mode="single" className="rounded-md border" />
       </div>

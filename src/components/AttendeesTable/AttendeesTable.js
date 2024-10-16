@@ -18,9 +18,9 @@ function AttendeesTable() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    getEventById(id).then((events) => {
-      setEvents(events);
-    });
+    // getEventById(id).then((events) => {
+    //   setEvents(events);
+    // });
   }, []);
 
   return (

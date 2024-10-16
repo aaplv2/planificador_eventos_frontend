@@ -28,18 +28,8 @@
           "phone": "2933829418",
           "email": "test3@email.com"
         }
-      ]
-    },
-    {
-      "title": "Evento Test 4",
-      "date": "05/10/2024",
-      "time": "16:00",
-      "location": "Direccion Test 4",
-      "price": "0",
-      "slots": "10/20",
-      "description": "",
-      "image": "",
-      "attendees": []
+      ],
+      "id": "a510"
     },
     {
       "title": "Evento Test 6",
@@ -50,7 +40,8 @@
       "slots": "12/20",
       "description": "",
       "image": "",
-      "attendees": []
+      "attendees": [],
+      "id": "9a88"
     },
     {
       "title": "Evento Test",
@@ -61,18 +52,8 @@
       "slots": "39/70",
       "description": "",
       "image": "",
-      "attendees": []
-    },
-    {
-      "title": "Evento Test 2",
-      "date": "12/10/2024",
-      "time": "17:00",
-      "location": "Direccion Test 2",
-      "price": "2000",
-      "slots": "3/20",
-      "description": "",
-      "image": "",
-      "attendees": []
+      "attendees": [],
+      "id": "35a0"
     },
     {
       "title": "Evento Test 5",
@@ -83,7 +64,8 @@
       "slots": "45/100",
       "description": "",
       "image": "",
-      "attendees": []
+      "attendees": [],
+      "id": "f62c"
     }
   ]
 }

@@ -6,8 +6,11 @@ import Profile from "../Profile/Profile";
 import EventsCarousel from "../EventsCarousel/EventsCarousel";
 import { Button } from "../Button/Button";
 import EventActionPopout from "../EventActionPopout/EventActionPopout";
+import { useProfileStore } from "../../stores/profileStore";
 
 function Main() {
+  const { isLoggedIn } = useProfileStore();
+
   return (
     <div className="main">
       <Profile />
@@ -19,7 +22,9 @@ function Main() {
       <div className="main-carousel">
         <EventsCarousel />
       </div>
-      <EventActionPopout />
+      <div className="main-popout">
+        {isLoggedIn ? <EventActionPopout /> : ""}
+      </div>
     </div>
   );
 }

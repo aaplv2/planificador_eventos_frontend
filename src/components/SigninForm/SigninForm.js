@@ -13,6 +13,8 @@ import { Input } from "../Input/Input";
 import { authorize } from "../../utils/auth";
 import { useNavigate } from "react-router-dom";
 import { useProfileStore } from "../../stores/profileStore";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { signinSchma } from "../../schemas/SigninSchema";
 
 export default function SigninForm() {
   const navigate = useNavigate();
@@ -23,6 +25,8 @@ export default function SigninForm() {
       email: "",
       password: "",
     },
+    resolver: yupResolver(signinSchma),
+    mode: "onChange",
   });
 
   function onSubmit(values) {
@@ -40,9 +44,9 @@ export default function SigninForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Inicia Sesion</FormLabel>
+              <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Email" {...field} />
+                <Input {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -53,15 +57,15 @@ export default function SigninForm() {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Inicia Sesion</FormLabel>
+              <FormLabel>Contraseña</FormLabel>
               <FormControl>
-                <Input placeholder="Contraseña" {...field} />
+                <Input {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit" disabled={!form.formState.isValid}>Iniciar Sesión</Button>
       </form>
     </Form>
   );

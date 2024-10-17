@@ -27,6 +27,42 @@
           "status": "Pendiente",
           "phone": "2933829418",
           "email": "test3@email.com"
+        },
+        {
+          "name": "at1",
+          "email": "at1@test.com",
+          "phone": "90909890"
+        },
+        {
+          "name": "",
+          "email": "",
+          "phone": ""
+        }
+      ],
+      "tasks": [
+        {
+          "time": "19:00",
+          "title": "task1",
+          "responsible": "e1",
+          "description": "oeiaudoiwadabckabhksjdgsajhdgsadsadsad asd dwa eweaew we"
+        },
+        {
+          "time": "11:00",
+          "title": "Titulo 2 test",
+          "responsible": "Encargado 2 test",
+          "description": "TRESEOFUHESHFIHFIUE ESR SEOIUR SEU SIE  CSUFHDIUF FSIEUFH SDSJKFH SDJK HJDS "
+        },
+        {
+          "time": "",
+          "title": "",
+          "responsible": "",
+          "description": ""
+        },
+        {
+          "time": "22",
+          "title": "test",
+          "responsible": "tests",
+          "description": "esdfsfes fs fesf sef fsee fse sfe"
         }
       ],
       "id": "a510"
@@ -40,23 +76,14 @@
       "slots": "12/20",
       "description": "",
       "image": "",
-      "attendees": [],
-      "id": "9a88"
-    },
-    {
       "attendees": [
         {
-          "name": "nombre test",
-          "email": "nombretest@test.com",
-          "phone": "9292929"
-        },
-        {
-          "name": "nombre test 2",
-          "email": "nombretest2@test.com",
-          "phone": "92929292"
+          "name": "at1",
+          "email": "at1@test",
+          "phone": "902387492874923"
         }
       ],
-      "id": "35a0"
+      "id": "9a88"
     },
     {
       "title": "Evento Test 5",

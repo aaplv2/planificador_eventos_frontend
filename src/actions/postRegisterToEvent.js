@@ -1,6 +1,6 @@
 export async function postRegisterToEvent(body, id) {
   const response = await fetch(`http://localhost:3000/events/${id}`, {
-    method: "PUT",
+    method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },

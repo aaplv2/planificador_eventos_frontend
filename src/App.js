@@ -1,5 +1,5 @@
 //módulos
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
 //estilos
@@ -14,8 +14,17 @@ import Signup from "./components/Signup/Signup";
 import Signin from "./components/Signin/Signin";
 import Success from "./components/Success/Success";
 import Events from "./components/Events/Events";
+import { useProfileStore } from "./stores/profileStore";
 
 function App() {
+  const { isLoggedIn, updateIsLoggedIn } = useProfileStore();
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    if (token) {
+      updateIsLoggedIn(true);
+    }
+  }, []);
+
   return (
     <div className="page">
       <Header />

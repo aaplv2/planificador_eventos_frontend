@@ -13,14 +13,14 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }) {
 
   const navigate = useNavigate();
 
-  const updateEvents = useEventStore((state) => state.updateEvents);
+  const update = useEventStore((state) => state.update);
 
   const handleDayClick = (day) => {
     setSelectedDay(day);
     const date = day.toLocaleDateString();
     const dateToURL = encodeURIComponent(date);
     getEventsByDate(dateToURL).then((events) => {
-      updateEvents(events);
+      update(events);
       if (events.length === 1) {
         navigate("/events/" + dateToURL + "/" + events[0].id);
       } else {

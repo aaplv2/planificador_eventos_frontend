@@ -1,43 +1,57 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 
-import { Dialog, DialogContent, DialogTrigger } from "../Dialog/Dialog";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "../Dialog/Dialog";
 import { Input } from "../Input/Input";
 import { Button } from "../Button/Button";
 import { Textarea } from "../Textarea/Textarea";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
 } from "../Form/Form";
+import { useEventStore } from "../../stores/eventStore";
+import { useParams } from "react-router-dom";
+import { postRegisterToEvent } from "../../actions/postRegisterToEvent";
 
-function AddTaskPopout() {
+function AddTaskPopout({ event, setEvent }) {
+  const update = useEventStore((state) => state.update);
+
+  const { id } = useParams();
+
   const form = useForm({
     defaultValues: {
-      username: "",
+      time: "",
+      title: "",
+      responsible: "",
+      description: "",
     },
   });
 
-  // 2. Define a submit handler.
   function onSubmit(values) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+    update([]);
+    postRegisterToEvent({ tasks: [...event.tasks, values] }, id).then(
+      (data) => {
+        setEvent(data);
+      }
+    );
   }
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">
-          Añadir Tarea
-        </Button>
+        <Button variant="outline">Añadir Tarea</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
+        <DialogTitle>Añadir Tarea</DialogTitle>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-1">
-            <FormDescription>Añadir Tarea</FormDescription>
             <FormField
               control={form.control}
               name="time"
@@ -64,7 +78,7 @@ function AddTaskPopout() {
             />
             <FormField
               control={form.control}
-              name="commissioner"
+              name="responsible"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Encargado</FormLabel>
@@ -81,13 +95,15 @@ function AddTaskPopout() {
                 <FormItem>
                   <FormLabel>Desripción</FormLabel>
                   <FormControl>
-                    <Textarea />
+                    <Textarea {...field} />
                   </FormControl>
                 </FormItem>
               )}
             />
-            <Button type="submit">Confirmar</Button>
-            <Button type="submit">Cancelar</Button>
+            <DialogClose asChild>
+              <Button type="submit">Confirmar</Button>
+            </DialogClose>
+            <Button>Cancelar</Button>
           </form>
         </Form>
       </DialogContent>

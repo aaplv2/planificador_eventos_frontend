@@ -10,14 +10,15 @@ import Profile from "../Profile/Profile";
 import { Button } from "../Button/Button";
 
 function Events() {
+  const { events, update } = useEventStore();
+
   const { date } = useParams();
-  const { events, updateEvents } = useEventStore();
 
   const navigate = useNavigate();
 
   useEffect(() => {
     getEventsByDate(date).then((events) => {
-      updateEvents(events);
+      update(events);
     });
   }, []);
 

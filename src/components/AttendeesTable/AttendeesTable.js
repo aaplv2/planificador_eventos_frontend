@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import {
   Table,
@@ -9,23 +9,7 @@ import {
   TableRow,
 } from "../Table/Table";
 
-import { useParams } from "react-router-dom";
-import { getEventById } from "../../actions/getEventById";
-import { useEventStore } from "../../stores/eventStore";
-
-function AttendeesTable() {
-  const event = useEventStore((state) => console.log(state));
-
-  const { id } = useParams();
-
-  const [events, setEvents] = useState([]);
-
-  useEffect(() => {
-    // getEventById(id).then((events) => {
-    //   setEvents(events);
-    // });
-  }, []);
-
+function AttendeesTable({ event }) {
   return (
     <Table>
       <TableHeader>
@@ -37,7 +21,7 @@ function AttendeesTable() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {events.map((event) =>
+        {event.attendees &&
           event.attendees.map((attendee, index) => (
             <TableRow key={index}>
               <TableCell className="font-medium">{attendee.name}</TableCell>
@@ -45,8 +29,7 @@ function AttendeesTable() {
               <TableCell>{attendee.phone}</TableCell>
               <TableCell className="text-right">{attendee.email}</TableCell>
             </TableRow>
-          ))
-        )}
+          ))}
       </TableBody>
     </Table>
   );

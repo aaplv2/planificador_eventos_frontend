@@ -9,6 +9,7 @@ import Map from "../Map/Map";
 import Profile from "../Profile/Profile";
 import { getEventById } from "../../actions/getEventById";
 import { useParams } from "react-router-dom";
+import TasksTable from "../TasksTable/TasksTable";
 
 function Event() {
   const { id } = useParams();
@@ -34,10 +35,11 @@ function Event() {
         slots={event.slots}
         showTable
       />
-      <RegisterForm />
+      <RegisterForm event={event} setEvent={setEvent} />
       <Map />
-      <AttendeesTable />
-      <AddTaskPopout />
+      <AttendeesTable event={event} />
+      <AddTaskPopout event={event} setEvent={setEvent} />
+      <TasksTable event={event} />
       <EditEventPopout />
     </div>
   );

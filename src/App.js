@@ -30,6 +30,14 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
+        {/* <Route
+          path="/events/:date"
+          element={
+            <ProtectedRoute>
+              <Events />
+            </ProtectedRoute>
+          }
+        /> */}
         <Route path="/events/:date" element={<Events />} />
         <Route path="/events/:date/:id" element={<Event />} />
         <Route path="/events/success" element={<Success />} />

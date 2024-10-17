@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import EventCard from "../EventCard/EventCard";
 import RegisterForm from "../RegisterForm/RegisterForm";
 
-import EditEventPopout from "../EditEventPopout/EditEventPopout";
 import AttendeesTable from "../AttendeesTable/AttendeesTable";
 import AddTaskPopout from "../AddTaskPopout/AddTaskPopout";
 import Map from "../Map/Map";
@@ -10,6 +9,7 @@ import Profile from "../Profile/Profile";
 import { getEventById } from "../../actions/getEventById";
 import { useParams } from "react-router-dom";
 import TasksTable from "../TasksTable/TasksTable";
+import EventActionPopout from "../EventActionPopout/EventActionPopout";
 
 function Event() {
   const { id } = useParams();
@@ -40,7 +40,7 @@ function Event() {
       <AttendeesTable event={event} />
       <AddTaskPopout event={event} setEvent={setEvent} />
       <TasksTable event={event} />
-      <EditEventPopout />
+      <EventActionPopout />
     </div>
   );
 }

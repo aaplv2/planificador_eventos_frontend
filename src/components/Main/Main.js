@@ -2,10 +2,10 @@ import React from "react";
 import EventCard from "../EventCard/EventCard";
 import { Calendar } from "../Calendar/Calendar";
 
-import EditEventPopout from "../EditEventPopout/EditEventPopout";
 import Profile from "../Profile/Profile";
 import EventsCarousel from "../EventsCarousel/EventsCarousel";
 import { Button } from "../Button/Button";
+import EventActionPopout from "../EventActionPopout/EventActionPopout";
 
 function Main() {
   return (
@@ -19,7 +19,7 @@ function Main() {
       <div className="main-carousel">
         <EventsCarousel />
       </div>
-      <EditEventPopout />
+      <EventActionPopout />
     </div>
   );
 }

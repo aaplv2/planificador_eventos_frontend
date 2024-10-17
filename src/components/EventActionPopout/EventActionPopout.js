@@ -15,7 +15,7 @@ import {
   FormLabel,
 } from "../Form/Form";
 
-function EditEventPopout() {
+function EventActionPopout() {
   const form = useForm({
     defaultValues: {
       username: "",
@@ -121,4 +121,4 @@ function EditEventPopout() {
   );
 }
 
-export default EditEventPopout;
+export default EventActionPopout;

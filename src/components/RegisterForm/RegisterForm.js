@@ -11,17 +11,12 @@ import {
 import { Input } from "../Input/Input";
 import { postRegisterToEvent } from "../../actions/postRegisterToEvent";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { getEventById } from "../../actions/getEventById";
 import { useEventStore } from "../../stores/eventStore";
 
-export default function RegisterForm() {
+export default function RegisterForm({ event, setEvent }) {
   const update = useEventStore((state) => state.update);
 
   const { id } = useParams();
-
-  const [events, setEvents] = useState([]);
-  const [counter, setCounter] = useState(0);
 
   const form = useForm({
     defaultValues: {
@@ -31,16 +26,16 @@ export default function RegisterForm() {
     },
   });
 
-  useEffect(() => {
-    getEventById(id).then((events) => {
-      setEvents(events[0]);
-    });
-  }, [counter]);
-
   function onSubmit(values) {
     update([]);
-    postRegisterToEvent({ attendees: [...events.attendees, values] }, id);
-    setCounter(counter + 1);
+    postRegisterToEvent({ attendees: [...event.attendees, values] }, id).then(
+      (data) => {
+        //data == array
+        //data[0] == event
+        setEvent(data);
+        //aca hay que cambiar el estado en donde este el evento
+      }
+    );
   }
 
   return (

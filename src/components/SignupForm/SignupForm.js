@@ -4,26 +4,25 @@ import { Button } from "../Button/Button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "../Form/Form";
 import { Input } from "../Input/Input";
+import { register } from "../../utils/auth";
 
 export default function SignupForm() {
-  // 1. Define your form.
   const form = useForm({
     defaultValues: {
-      username: "",
+      email: "",
+      password: "",
+      passwordConfirm: "",
     },
   });
 
-  // 2. Define a submit handler.
   function onSubmit(values) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+    register(values.email, values.password)
     console.log(values);
   }
 
@@ -32,22 +31,39 @@ export default function SignupForm() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
-          name="username"
+          name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Crea una cuenta</FormLabel>
+              <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Nombre" {...field} />
+                <Input placeholder="Email" {...field} />
               </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="password"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Contraseña</FormLabel>
               <FormControl>
                 <Input placeholder="Contraseña" {...field} />
               </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="passwordConfirm"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Confirmar contraseña</FormLabel>
               <FormControl>
                 <Input placeholder="Contraseña" {...field} />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
               <FormMessage />
             </FormItem>
           )}

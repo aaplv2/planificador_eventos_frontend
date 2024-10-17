@@ -4,27 +4,32 @@ import { Button } from "../Button/Button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "../Form/Form";
 import { Input } from "../Input/Input";
+import { authorize } from "../../utils/auth";
+import { useNavigate } from "react-router-dom";
+import { useProfileStore } from "../../stores/profileStore";
 
 export default function SigninForm() {
-  // 1. Define your form.
+  const navigate = useNavigate();
+  const { updateIsLoggedIn } = useProfileStore();
+
   const form = useForm({
     defaultValues: {
-      username: "",
+      email: "",
+      password: "",
     },
   });
 
-  // 2. Define a submit handler.
   function onSubmit(values) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+    authorize(values.email, values.password).then((data) => {
+      updateIsLoggedIn(true);
+      navigate("/");
+    });
   }
 
   return (
@@ -32,19 +37,26 @@ export default function SigninForm() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
-          name="username"
+          name="email"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Inicia Sesion</FormLabel>
               <FormControl>
                 <Input placeholder="Email" {...field} />
               </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="password"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Inicia Sesion</FormLabel>
               <FormControl>
                 <Input placeholder="Contraseña" {...field} />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
               <FormMessage />
             </FormItem>
           )}

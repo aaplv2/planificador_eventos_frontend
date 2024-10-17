@@ -7,15 +7,23 @@ import EventsCarousel from "../EventsCarousel/EventsCarousel";
 import { Button } from "../Button/Button";
 import EventActionPopout from "../EventActionPopout/EventActionPopout";
 import { useProfileStore } from "../../stores/profileStore";
+import { useNavigate } from "react-router-dom";
 
 function Main() {
   const { isLoggedIn } = useProfileStore();
+
+  const navigate = useNavigate();
+
+  function handleSeeMoreClick() {
+    navigate();
+    console.log("ir al próximo evento");
+  }
 
   return (
     <div className="main">
       <Profile />
       <EventCard />
-      <Button>Ver Mas..</Button>
+      <Button onClick={handleSeeMoreClick}>Ver Mas..</Button>
       <div className="main-calendar">
         <Calendar mode="single" className="rounded-md border" />
       </div>

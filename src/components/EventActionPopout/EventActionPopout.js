@@ -9,24 +9,32 @@ import { Textarea } from "../Textarea/Textarea";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
 } from "../Form/Form";
+import { DialogClose, DialogTitle } from "@radix-ui/react-dialog";
+import { useEventStore } from "../../stores/eventStore";
+import { postEventAction } from "../../actions/postEventAction";
 
 function EventActionPopout() {
+  const update = useEventStore((state) => state.update);
+
   const form = useForm({
     defaultValues: {
-      username: "",
+      title: "",
+      location: "",
+      date: "",
+      time: "",
+      price: "",
+      slots: "",
+      description: "",
     },
   });
 
-  // 2. Define a submit handler.
   function onSubmit(values) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+    update([]);
+    postEventAction(values);
   }
   return (
     <Dialog>
@@ -36,9 +44,9 @@ function EventActionPopout() {
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
+        <DialogTitle>Nuevo Evento</DialogTitle>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-1">
-            <FormDescription>Modificar Evento</FormDescription>
             <FormField
               control={form.control}
               name="title"
@@ -53,7 +61,7 @@ function EventActionPopout() {
             />
             <FormField
               control={form.control}
-              name="place"
+              name="location"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Ubicación</FormLabel>
@@ -69,6 +77,18 @@ function EventActionPopout() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Fecha</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="time"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Time</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -106,14 +126,18 @@ function EventActionPopout() {
                 <FormItem>
                   <FormLabel>Desripción</FormLabel>
                   <FormControl>
-                    <Textarea />
+                    <Textarea {...field} />
                   </FormControl>
                 </FormItem>
               )}
             />
             <Button>Subir Imagen</Button>
-            <Button type="submit">Confirmar</Button>
-            <Button>Cancelar</Button>
+            <DialogClose asChild>
+              <Button type="submit">Confirmar</Button>
+            </DialogClose>
+            <DialogClose asChild>
+              <Button>Cancelar</Button>
+            </DialogClose>
           </form>
         </Form>
       </DialogContent>

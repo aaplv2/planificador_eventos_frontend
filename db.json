@@ -96,6 +96,16 @@
       "image": "",
       "attendees": [],
       "id": "f62c"
+    },
+    {
+      "id": "757e",
+      "title": "test",
+      "location": "testlocation",
+      "date": "21/10/2024",
+      "time": "16:00",
+      "price": "23000",
+      "slots": "0/200",
+      "description": "TESTESTSETSETESTSET"
     }
   ]
 }

@@ -34,9 +34,11 @@ function Header() {
       {!isLoggedIn ? (
         <Button onClick={handleRedirect}>Iniciar sesión</Button>
       ) : (
-        <Button onClick={handleSignOut}>Cerrar sesión</Button>
+        <>
+          <Button onClick={handleSignOut}>Cerrar sesión</Button>
+          <EditProfileSheet />
+        </>
       )}
-      <EditProfileSheet />
     </header>
   );
 }

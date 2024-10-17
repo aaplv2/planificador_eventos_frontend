@@ -10,8 +10,11 @@ import { getEventById } from "../../actions/getEventById";
 import { useParams } from "react-router-dom";
 import TasksTable from "../TasksTable/TasksTable";
 import EventActionPopout from "../EventActionPopout/EventActionPopout";
+import { useProfileStore } from "../../stores/profileStore";
 
 function Event() {
+  const { isLoggedIn } = useProfileStore();
+
   const { id } = useParams();
 
   const [event, setEvent] = useState({});
@@ -37,10 +40,16 @@ function Event() {
       />
       <RegisterForm event={event} setEvent={setEvent} />
       <Map />
-      <AttendeesTable event={event} />
-      <AddTaskPopout event={event} setEvent={setEvent} />
-      <TasksTable event={event} />
-      <EventActionPopout />
+      {isLoggedIn ? (
+        <>
+          <AttendeesTable event={event} />
+          <AddTaskPopout event={event} setEvent={setEvent} />
+          <TasksTable event={event} />
+          <EventActionPopout />
+        </>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

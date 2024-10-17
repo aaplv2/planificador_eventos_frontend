@@ -7,11 +7,14 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
 } from "../Form/Form";
 import { Input } from "../Input/Input";
 import { postRegisterToEvent } from "../../actions/postRegisterToEvent";
 import { useParams } from "react-router-dom";
 import { useEventStore } from "../../stores/eventStore";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { registerSchema } from "../../schemas/RegisterSchema";
 
 export default function RegisterForm({ event, setEvent }) {
   const update = useEventStore((state) => state.update);
@@ -24,6 +27,8 @@ export default function RegisterForm({ event, setEvent }) {
       email: "",
       phone: "",
     },
+    resolver: yupResolver(registerSchema),
+    mode: "onChange",
   });
 
   function onSubmit(values) {
@@ -50,6 +55,7 @@ export default function RegisterForm({ event, setEvent }) {
               <FormControl>
                 <Input id="name" {...field} />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -62,6 +68,7 @@ export default function RegisterForm({ event, setEvent }) {
               <FormControl>
                 <Input id="email" {...field} />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -74,10 +81,13 @@ export default function RegisterForm({ event, setEvent }) {
               <FormControl>
                 <Input id="phone" {...field} />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">Regístrate</Button>
+        <Button type="submit" disabled={!form.formState.isValid}>
+          Regístrate
+        </Button>
       </form>
     </Form>
   );

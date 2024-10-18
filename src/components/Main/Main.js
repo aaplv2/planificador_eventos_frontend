@@ -22,7 +22,7 @@ function Main() {
   return (
     <div className="main">
       <Profile />
-      <EventCard />
+      <EventCard showSubtitle />
       <Button onClick={handleSeeMoreClick}>Ver Mas..</Button>
       <div className="main-calendar">
         <Calendar mode="single" className="rounded-md border" />

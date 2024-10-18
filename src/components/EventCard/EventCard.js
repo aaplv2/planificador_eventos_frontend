@@ -18,11 +18,14 @@ function EventCard({
   price,
   slots,
   showTable = false,
+  showSubtitle = false,
 }) {
   return (
     <div className="event-card">
       <div className="event-card__titles">
-        <p className="event-card__titles-subtitle">Próximo Evento:</p>
+        {showSubtitle && (
+          <p className="event-card__titles-subtitle">Próximo Evento:</p>
+        )}
         <h2 className="event-card__titles-title">{title}</h2>
       </div>
       <div className="event-card__event">
@@ -49,7 +52,7 @@ function EventCard({
             <TableHeader></TableHeader>
             <TableBody>
               <TableRow>
-                <TableCell className="font-medium">Hora</TableCell>
+                <TableCell className="font-medium">Fecha</TableCell>
                 <TableCell>
                   {date}, {time}
                 </TableCell>

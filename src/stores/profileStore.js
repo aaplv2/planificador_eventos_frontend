@@ -1,16 +1,16 @@
 import { create } from "zustand";
 
 export const useProfileStore = create((set) => ({
-  username: "",
+  name: "",
   email: "",
   isLoggedIn: false,
-  updateUsername: (newUsername) => set(() => ({ username: newUsername })),
+  updateUsername: (newName) => set(() => ({ name: newName })),
   updateEmail: (newEmail) => set(() => ({ email: newEmail })),
   updateIsLoggedIn: (setIsLoggedIn) =>
     set(() => ({ isLoggedIn: setIsLoggedIn })),
-  update: (newUsername, newEmail, setIsLoggedIn) =>
+  update: (newName, newEmail, setIsLoggedIn) =>
     set(() => ({
-      username: newUsername,
+      name: newName,
       email: newEmail,
       isLoggedIn: setIsLoggedIn,
     })),

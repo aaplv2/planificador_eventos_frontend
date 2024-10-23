@@ -6,7 +6,6 @@ import { useEventStore } from "../../stores/eventStore";
 import { getEventsByDate } from "../../actions/getEventsByDate";
 
 import EventCard from "../EventCard/EventCard";
-import Profile from "../Profile/Profile";
 import { Button } from "../Button/Button";
 
 function Events() {
@@ -29,7 +28,6 @@ function Events() {
 
   return (
     <div className="event">
-      <Profile />
       {events &&
         events.map((event, card) => {
           return (

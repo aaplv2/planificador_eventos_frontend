@@ -17,6 +17,7 @@ import { signupSchma } from "../../schemas/SignupSchema";
 export default function SignupForm() {
   const form = useForm({
     defaultValues: {
+      name: "",
       email: "",
       password: "",
       passwordConfirmation: "",
@@ -26,12 +27,25 @@ export default function SignupForm() {
   });
 
   function onSubmit(values) {
-    register(values.email, values.password);
+    register(values.name, values.email, values.password);
   }
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Nombre</FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <FormField
           control={form.control}
           name="email"
@@ -71,7 +85,9 @@ export default function SignupForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={!form.formState.isValid}>Crear cuenta</Button>
+        <Button type="submit" disabled={!form.formState.isValid}>
+          Crear cuenta
+        </Button>
       </form>
     </Form>
   );

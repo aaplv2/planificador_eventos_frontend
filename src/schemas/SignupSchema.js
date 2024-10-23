@@ -1,6 +1,7 @@
 import * as yup from "yup";
 
 export const signupSchma = yup.object({
+  name: yup.string().required("Campo requerido"),
   email: yup.string().email("Formato incorrecto").required("Campo requerido"),
   password: yup
     .string()

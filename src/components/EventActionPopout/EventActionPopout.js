@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { IconPencil } from "@tabler/icons-react";
 import { useForm } from "react-hook-form";
 
-import { Dialog, DialogContent, DialogTrigger } from "../Dialog/Dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTrigger,
+} from "../Dialog/Dialog";
 import { Input } from "../Input/Input";
 import { Button } from "../Button/Button";
 import { Textarea } from "../Textarea/Textarea";
@@ -16,9 +21,13 @@ import {
 import { DialogClose, DialogTitle } from "@radix-ui/react-dialog";
 import { useEventStore } from "../../stores/eventStore";
 import { postEventAction } from "../../actions/postEventAction";
+import { Label } from "../Label/Label";
 
 function EventActionPopout() {
   const update = useEventStore((state) => state.update);
+  const event = useEventStore();
+
+  const [file, setFile] = useState({});
 
   const form = useForm({
     defaultValues: {
@@ -33,9 +42,20 @@ function EventActionPopout() {
   });
 
   function onSubmit(values) {
-    update([]);
+    values.image = file;
+    console.log(values);
+    // console.log(event)
+    // formData.append("event", values);
+    // formData.append("event", file);
+    // console.log(formData.getAll("event"));
+    // update([]);
     postEventAction(values);
   }
+
+  function handleFileUpload(file) {
+    setFile(file.target.files[0]);
+  }
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -44,6 +64,7 @@ function EventActionPopout() {
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
+        <DialogDescription />
         <DialogTitle>Nuevo Evento</DialogTitle>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-1">
@@ -131,7 +152,20 @@ function EventActionPopout() {
                 </FormItem>
               )}
             />
-            <Button>Subir Imagen</Button>
+
+            <Button
+              type="button"
+              className="px-0 py-0 w-full max-w-sm"
+              onChange={handleFileUpload}
+            >
+              <Label
+                htmlFor="picture"
+                className="w-full h-full inline-flex justify-center items-center"
+              >
+                Subir Imagen
+              </Label>
+              <Input id="picture" type="file" style={{ display: "none" }} />
+            </Button>
             <DialogClose asChild>
               <Button type="submit">Confirmar</Button>
             </DialogClose>

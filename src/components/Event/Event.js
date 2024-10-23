@@ -27,7 +27,6 @@ function Event() {
 
   return (
     <div className="event">
-      <Profile />
       <EventCard
         title={event.title}
         key={event.id}

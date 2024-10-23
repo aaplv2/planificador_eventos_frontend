@@ -10,7 +10,7 @@ import {
   FormMessage,
 } from "../Form/Form";
 import { Input } from "../Input/Input";
-import { authorize } from "../../utils/auth";
+import { authorize, getUser } from "../../utils/auth";
 import { useNavigate } from "react-router-dom";
 import { useProfileStore } from "../../stores/profileStore";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -18,7 +18,7 @@ import { signinSchma } from "../../schemas/SigninSchema";
 
 export default function SigninForm() {
   const navigate = useNavigate();
-  const { updateIsLoggedIn } = useProfileStore();
+  const { updateEmail, updateIsLoggedIn } = useProfileStore();
 
   const form = useForm({
     defaultValues: {
@@ -32,6 +32,9 @@ export default function SigninForm() {
   function onSubmit(values) {
     authorize(values.email, values.password).then((data) => {
       updateIsLoggedIn(true);
+      getUser(data.token).then(({ data }) => {
+        updateEmail(data.email);
+      });
       navigate("/");
     });
   }
@@ -65,7 +68,9 @@ export default function SigninForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={!form.formState.isValid}>Iniciar Sesión</Button>
+        <Button type="submit" disabled={!form.formState.isValid}>
+          Iniciar Sesión
+        </Button>
       </form>
     </Form>
   );

@@ -22,6 +22,7 @@ import { DialogClose, DialogTitle } from "@radix-ui/react-dialog";
 import { useEventStore } from "../../stores/eventStore";
 import { postEventAction } from "../../actions/postEventAction";
 import { Label } from "../Label/Label";
+import api from "../../utils/api";
 
 function EventActionPopout() {
   const update = useEventStore((state) => state.update);
@@ -43,17 +44,46 @@ function EventActionPopout() {
 
   function onSubmit(values) {
     values.image = file;
-    console.log(values);
+    // console.log(values);
     // console.log(event)
     // formData.append("event", values);
     // formData.append("event", file);
     // console.log(formData.getAll("event"));
     // update([]);
-    postEventAction(values);
+    // postEventAction(values);
   }
 
   function handleFileUpload(file) {
-    setFile(file.target.files[0]);
+    const archivo = file.target.files[0]; //[file]
+    const data = new FormData(); //{ "file" : }
+    data.append("file", archivo);
+
+    // api.uploadImage(data)
+
+    fetch("http://localhost:3000/upload", {
+      method: "POST",
+      body: data,
+    })
+      .catch((err) => {
+        console.log(err);
+      })
+      .then((res) => {
+        console.log(res);
+      });
+
+
+    // setFile(image.files);
+    // const reader = new FileReader();
+    // reader.onloadend = function() {
+    //   console.log('RESULT', reader.result)
+    // }
+    // reader.readAsDataURL(file)
+    // const reader = new FileReader();
+    // reader.onloadend = function () {
+    //   console.log("RESULT", reader.result);
+    // };
+    // reader.readAsDataURL(file);
+    // console.log(file);
   }
 
   return (

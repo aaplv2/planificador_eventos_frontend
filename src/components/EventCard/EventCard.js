@@ -17,6 +17,7 @@ function EventCard({
   location,
   price,
   slots,
+  image,
   showTable = false,
   showSubtitle = false,
 }) {
@@ -31,7 +32,7 @@ function EventCard({
       <div className="event-card__event">
         <img
           className="event-card__event-image"
-          src={imageMainEventPath}
+          src={image}
           alt="Próximo evento"
         />
         <p className="event-card__event-description">

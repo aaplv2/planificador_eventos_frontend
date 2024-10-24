@@ -30,6 +30,7 @@
     "yup": "^1.4.0",
     "zustand": "^5.0.0-rc.2"
   },
+  "proxy": "http://localhost:3000",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

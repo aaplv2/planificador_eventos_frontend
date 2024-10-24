@@ -20,9 +20,9 @@ function Main() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // console.log(dayjs().add(1, "day").format("DD/MM/YYYY HH:mm"));
     getAllEvents()
       .then((events) => {
+        console.log(events);
         // console.log(events);
         setCarouselEvents(events);
         setNextEvent(events[events.length - 1]);

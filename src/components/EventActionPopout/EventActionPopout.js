@@ -29,6 +29,7 @@ function EventActionPopout() {
   const event = useEventStore();
 
   const [file, setFile] = useState({});
+  const [image, setImage] = useState({});
 
   const form = useForm({
     defaultValues: {
@@ -43,26 +44,30 @@ function EventActionPopout() {
   });
 
   function onSubmit(values) {
-    values.image = file;
-    // console.log(values);
-    // console.log(event)
-    // formData.append("event", values);
-    // formData.append("event", file);
-    // console.log(formData.getAll("event"));
-    // update([]);
-    // postEventAction(values);
-  }
+    // const valuesBlob = new Blob([
+    //   JSON.stringify(values.title),
+    //   { type: "application/json" },
+    // ]);
 
-  function handleFileUpload(file) {
-    const archivo = file.target.files[0]; //[file]
-    const data = new FormData(); //{ "file" : }
-    data.append("file", archivo);
+    const valuesData = new FormData();
 
-    // api.uploadImage(data)
+    for (let prop in values) {
+      valuesData.append(prop, values[prop])
+    }
+
+    valuesData.append("file", image);
+    
+    // valuesData.append("title", values.title);
+    // valuesData.append("location", values.location);
+    // valuesData.append("date", values.date);
+    // valuesData.append("time", values.time);
+    // valuesData.append("price", values.price);
+    // valuesData.append("slots", values.slots);
+    // valuesData.append("description", values.description);
 
     fetch("http://localhost:3000/upload", {
       method: "POST",
-      body: data,
+      body: valuesData,
     })
       .catch((err) => {
         console.log(err);
@@ -71,6 +76,21 @@ function EventActionPopout() {
         console.log(res);
       });
 
+    // formData.append("event", values);
+    // formData.append("event", file);
+
+    // update([]);
+    // postEventAction(values);
+  }
+
+  function handleFileUpload(file) {
+    const image = file.target.files[0]; //[file]
+    // const imageData = new FormData();
+    // imageData.append("file", image);
+
+    setImage(image);
+
+    // api.uploadImage(data)
 
     // setFile(image.files);
     // const reader = new FileReader();

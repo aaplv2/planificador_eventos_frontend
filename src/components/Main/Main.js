@@ -22,7 +22,6 @@ function Main() {
   useEffect(() => {
     getAllEvents()
       .then((events) => {
-        console.log(events);
         // console.log(events);
         setCarouselEvents(events);
         setNextEvent(events[events.length - 1]);
@@ -56,6 +55,11 @@ function Main() {
     <div className="main">
       <EventCard
         title={nextEvent?.title}
+        location={nextEvent?.location}
+        date={nextEvent?.date}
+        time={nextEvent?.time}
+        price={nextEvent?.price}
+        slots={nextEvent?.slots}
         description={nextEvent?.description}
         image={nextEvent?.image}
         showSubtitle

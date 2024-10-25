@@ -9,6 +9,7 @@ import {
 } from "../Table/Table";
 
 function EventCard({
+  _id,
   title,
   date,
   time,

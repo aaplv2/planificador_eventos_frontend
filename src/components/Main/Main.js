@@ -14,7 +14,7 @@ import dayjs from "dayjs";
 function Main() {
   const { isLoggedIn } = useProfileStore();
 
-  const [nextEvent, setNextEvent] = useState();
+  const [nextEvent, setNextEvent] = useState({});
   const [carouselEvents, setCarouselEvents] = useState([]);
 
   const navigate = useNavigate();
@@ -48,20 +48,21 @@ function Main() {
 
   function handleSeeMoreClick() {
     const dateToURL = encodeURIComponent(nextEvent.date);
-    navigate("/events/" + dateToURL + "/" + nextEvent.id);
+    navigate("/events/" + dateToURL + "/" + nextEvent._id);
   }
 
   return (
     <div className="main">
       <EventCard
-        title={nextEvent?.title}
-        location={nextEvent?.location}
-        date={nextEvent?.date}
-        time={nextEvent?.time}
-        price={nextEvent?.price}
-        slots={nextEvent?.slots}
-        description={nextEvent?.description}
-        image={nextEvent?.image}
+        _id={nextEvent._id}
+        title={nextEvent.title}
+        location={nextEvent.location}
+        date={nextEvent.date}
+        time={nextEvent.time}
+        price={nextEvent.price}
+        slots={nextEvent.slots}
+        description={nextEvent.description}
+        image={nextEvent.image}
         showSubtitle
       />
       <Button onClick={handleSeeMoreClick}>Ver Mas..</Button>

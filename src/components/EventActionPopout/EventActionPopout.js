@@ -52,11 +52,11 @@ function EventActionPopout() {
     const valuesData = new FormData();
 
     for (let prop in values) {
-      valuesData.append(prop, values[prop])
+      valuesData.append(prop, values[prop]);
     }
 
     valuesData.append("file", image);
-    
+
     // valuesData.append("title", values.title);
     // valuesData.append("location", values.location);
     // valuesData.append("date", values.date);
@@ -149,7 +149,7 @@ function EventActionPopout() {
                 <FormItem>
                   <FormLabel>Fecha</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input {...field} type="date" />
                   </FormControl>
                 </FormItem>
               )}
@@ -161,7 +161,7 @@ function EventActionPopout() {
                 <FormItem>
                   <FormLabel>Time</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input {...field} type="time" />
                   </FormControl>
                 </FormItem>
               )}

@@ -23,6 +23,8 @@ function Main() {
     getAllEvents()
       .then((events) => {
         // console.log(events);
+        if (events.length === 0) return;
+
         setCarouselEvents(events);
         setNextEvent(events[events.length - 1]);
         // dayjs(events).format("DD/MM/YYYY HH:mm");

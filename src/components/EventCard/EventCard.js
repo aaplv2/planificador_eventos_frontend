@@ -35,9 +35,7 @@ function EventCard({
           src={image}
           alt="Próximo evento"
         />
-        <p className="event-card__event-description">
-          {description}
-        </p>
+        <p className="event-card__event-description">{description}</p>
       </div>
       {showTable && (
         <div className="event-details">
@@ -47,7 +45,7 @@ function EventCard({
               <TableRow>
                 <TableCell className="font-medium">Fecha</TableCell>
                 <TableCell>
-                  {date}, {time}
+                  {new Date(date).toLocaleDateString("es-ES")}, {time}
                 </TableCell>
               </TableRow>
               <TableRow>

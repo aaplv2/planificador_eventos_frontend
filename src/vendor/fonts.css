@@ -17,3 +17,8 @@
   src: url(./fonts/Latinotype\ -\ TrendSlabFour.otf) format("otf");
   font-family: "TrendSlabFour";
 }
+
+@font-face {
+  src: url(./fonts/Arvo-Regular.ttf) format("ttf");
+  font-family: "ArvoRegular";
+}

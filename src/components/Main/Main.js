@@ -67,7 +67,13 @@ function Main() {
         image={nextEvent.image}
         showSubtitle
       />
-      <Button onClick={handleSeeMoreClick}>Ver Mas..</Button>
+      <Button
+        className="main__button-card text-primary-red"
+        variant="link"
+        onClick={handleSeeMoreClick}
+      >
+        Ver Mas..
+      </Button>
       <div className="main-calendar">
         <Calendar mode="single" className="rounded-md border" />
       </div>

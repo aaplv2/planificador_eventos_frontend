@@ -15,6 +15,7 @@ import Signin from "./components/Signin/Signin";
 import Success from "./components/Success/Success";
 import Events from "./components/Events/Events";
 import { useProfileStore } from "./stores/profileStore";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const { isLoggedIn, updateIsLoggedIn } = useProfileStore();
@@ -33,7 +34,7 @@ function App() {
         {/* <Route
           path="/events/:date"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
               <Events />
             </ProtectedRoute>
           }

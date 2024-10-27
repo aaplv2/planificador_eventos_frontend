@@ -80,8 +80,8 @@ function Main() {
       <div className="main-carousel">
         <EventsCarousel carouselEvents={carouselEvents} />
       </div>
-      <div className="main-popout">
-        {isLoggedIn ? <EventActionPopout /> : ""}
+      <div>
+        {isLoggedIn ? <EventActionPopout id="event-popout-action" /> : ""}
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 .main {
   display: flex;
+  position: relative;
   flex-direction: column;
   margin: auto 20px;
 }
@@ -15,4 +16,10 @@
 .main-calendar {
   display: flex;
   justify-content: center;
+}
+
+.main-popout {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

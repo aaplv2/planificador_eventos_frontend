@@ -42,7 +42,7 @@ export function EditProfileSheet() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline">Editar</Button>
+        <Button className="bg-color-foreground hover:bg-primary/20">Editar</Button>
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>

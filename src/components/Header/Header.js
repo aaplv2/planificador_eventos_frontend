@@ -14,13 +14,16 @@ function Header() {
   const navigate = useNavigate();
   const { email, updateEmail, isLoggedIn, updateIsLoggedIn } =
     useProfileStore();
+
   const [token, setToken] = useState("");
+  const [userEmail, setUserEmail] = useState("");
 
   useEffect(() => {
     setToken(localStorage.getItem("jwt"));
     if (token) {
       getUser(token).then(({ data }) => {
         updateEmail(data.email);
+        setUserEmail(data.email);
       });
     }
   }, []);
@@ -41,25 +44,35 @@ function Header() {
   return (
     <header className="header">
       <img className="header__logo" alt="Logo Swingtiago" src={logoMain1Path} />
-      <nav className="header__nav">
-        <Navigation />
-      </nav>
-      <Button onClick={handleHomeClick}>
+      <Button
+        className="bg-color-foreground hover:bg-primary/20"
+        onClick={handleHomeClick}
+      >
         <IconHome />
       </Button>
-        <IconMenu />
+      {/* <nav className="header__nav">
+        <Navigation />
+      </nav> */}
+      {/* <IconMenu /> */}
       {/* <HeaderDropdownMenu isLoggedIn={isLoggedIn}>
         <IconMenu />
       </HeaderDropdownMenu> */}
       {!isLoggedIn ? (
-        
-        <Button onClick={handleRedirect}>Iniciar sesión</Button>
+        <Button
+          className="header__button-log bg-color-foreground hover:bg-primary/20"
+          onClick={handleRedirect}
+        >
+          Iniciar sesión
+        </Button>
       ) : (
         <>
-          <div className="header">
-            <h2 className="header-mail">{email}</h2>
-          </div>
-          <Button onClick={handleSignOut}>Cerrar sesión</Button>
+          <h2 className="header__user">Email de usuario</h2>
+          <Button
+            className="header__button-log bg-color-foreground hover:bg-primary/20"
+            onClick={handleSignOut}
+          >
+            Cerrar sesión
+          </Button>
           <EditProfileSheet />
         </>
       )}

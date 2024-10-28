@@ -13,8 +13,11 @@ import { Input } from "../Input/Input";
 import { register } from "../../utils/auth";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signupSchma } from "../../schemas/SignupSchema";
+import { useNavigate } from "react-router-dom";
 
 export default function SignupForm() {
+  const navigate = useNavigate();
+
   const form = useForm({
     defaultValues: {
       name: "",
@@ -28,6 +31,7 @@ export default function SignupForm() {
 
   function onSubmit(values) {
     register(values.name, values.email, values.password);
+    navigate("/signin");
   }
 
   return (

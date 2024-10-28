@@ -66,7 +66,7 @@ function Header() {
         </Button>
       ) : (
         <>
-          <h2 className="header__user">Email de usuario</h2>
+          <h2 className="header__user">{userEmail}</h2>
           <Button
             className="header__button-log bg-color-foreground hover:bg-primary/20"
             onClick={handleSignOut}

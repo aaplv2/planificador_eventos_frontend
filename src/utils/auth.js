@@ -43,7 +43,7 @@ export const authorize = (email, password) => {
 };
 
 export const getUser = (token) => {
-  return fetch(`${BASE_URL}/users/me`, {
+  return fetch(`${BASE_URL}/user/me`, {
     method: "GET",
     headers: {
       Accept: "application/json",

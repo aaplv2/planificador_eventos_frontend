@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { useEventStore } from "../../stores/eventStore";
 import { getAllEvents } from "../../actions/getAllEvents";
 import dayjs from "dayjs";
+import api from "../../utils/api";
 
 function Main() {
   const { isLoggedIn } = useProfileStore();
@@ -20,13 +21,12 @@ function Main() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getAllEvents()
+    api.getAllEvents()
       .then((events) => {
-        // console.log(events);
         if (events.length === 0) return;
 
         setCarouselEvents(events);
-        setNextEvent(events[events.length - 1]);
+        setNextEvent(events[0]);
         // dayjs(events).format("DD/MM/YYYY HH:mm");
         // update(events);
 

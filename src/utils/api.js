@@ -3,22 +3,20 @@ class Api {
     this._baseUrl = baseUrl;
   }
 
-  handleRes(res) {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Error: ${res.status}`);
-  }
-
   getFetch(url, method, body) {
     return fetch(`${this._baseUrl}/${url}`, {
       method,
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token") || "",
+        Authorization: "Bearer " + localStorage.getItem("jwt") || "",
       },
       body,
-    }).then(this.handleRes);
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
   }
 
   getUserInfo() {
@@ -38,6 +36,10 @@ class Api {
 
   uploadImage(data) {
     return this.getFetch("upload", "POST", { data });
+  }
+
+  getAllEvents() {
+    return this.getFetch("events", "GET");
   }
 }
 

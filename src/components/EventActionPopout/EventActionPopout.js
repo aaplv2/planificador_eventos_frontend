@@ -57,17 +57,12 @@ function EventActionPopout() {
 
     valuesData.append("file", image);
 
-    // valuesData.append("title", values.title);
-    // valuesData.append("location", values.location);
-    // valuesData.append("date", values.date);
-    // valuesData.append("time", values.time);
-    // valuesData.append("price", values.price);
-    // valuesData.append("slots", values.slots);
-    // valuesData.append("description", values.description);
-
     fetch("http://localhost:3000/upload", {
       method: "POST",
       body: valuesData,
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("jwt") || "",
+      },
     })
       .catch((err) => {
         console.log(err);

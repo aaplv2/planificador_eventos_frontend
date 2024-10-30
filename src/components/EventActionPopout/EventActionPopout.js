@@ -22,13 +22,12 @@ import { DialogClose, DialogTitle } from "@radix-ui/react-dialog";
 import { useEventStore } from "../../stores/eventStore";
 import { postEventAction } from "../../actions/postEventAction";
 import { Label } from "../Label/Label";
-import api from "../../utils/api";
 
 function EventActionPopout() {
-  const update = useEventStore((state) => state.update);
-  const event = useEventStore();
+  // const update = useEventStore((state) => state.update);
+  // const event = useEventStore();
 
-  const [file, setFile] = useState({});
+  // const [file, setFile] = useState({});
   const [image, setImage] = useState({});
 
   const form = useForm({
@@ -44,11 +43,6 @@ function EventActionPopout() {
   });
 
   function onSubmit(values) {
-    // const valuesBlob = new Blob([
-    //   JSON.stringify(values.title),
-    //   { type: "application/json" },
-    // ]);
-
     const valuesData = new FormData();
 
     for (let prop in values) {
@@ -58,20 +52,6 @@ function EventActionPopout() {
     valuesData.append("file", image);
 
     postEventAction(valuesData);
-
-    // fetch("http://localhost:3000/upload", {
-    //   method: "POST",
-    //   body: valuesData,
-    //   headers: {
-    //     Authorization: "Bearer " + localStorage.getItem("jwt") || "",
-    //   },
-    // })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //   });
   }
 
   function handleFileUpload(file) {

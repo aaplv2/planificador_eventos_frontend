@@ -19,7 +19,6 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }) {
     setSelectedDay(day);
     const date = day.toLocaleDateString();
     const dateToURL = encodeURIComponent(date);
-    console.log(dateToURL)
     getEventsByDate(dateToURL).then((events) => {
       update(events);
       if (events.length === 1) {

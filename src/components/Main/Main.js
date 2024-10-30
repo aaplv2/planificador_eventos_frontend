@@ -21,27 +21,12 @@ function Main() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    api.getAllEvents()
+    api
+      .getAllEvents()
       .then((events) => {
         if (events.length === 0) return;
-
         setCarouselEvents(events);
         setNextEvent(events[0]);
-        // dayjs(events).format("DD/MM/YYYY HH:mm");
-        // update(events);
-
-        // events.sort((a, b) => {
-        //   a = a.date.split("/");
-        //   b = b.date.split("/");
-        //   return a[2] - b[2] || a[1] - b[1] || a[0] - b[0];
-        // });
-
-        // const sortedDates = events
-        //   .map((obj) => {
-        //     return { ...obj, date: obj.date };
-        //   })
-        //   .sort((a, b) => b.date - a.date);
-        // setNextEvent(sortedDates[0]);
       })
       .catch((error) => {
         console.log(error);

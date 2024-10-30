@@ -1,10 +1,13 @@
 import dayjs from "dayjs";
+var customParseFormat = require("dayjs/plugin/customParseFormat");
+
+dayjs.extend(customParseFormat);
 
 export async function getEventsByDate(date) {
-  const formatedDate = dayjs(decodeURIComponent(date)).format("YYYY/DD/MM");
-  console.log(formatedDate);
+  // const formatedDate = dayjs(decodeURIComponent(date), "DD/MM/YYYY");
+  // console.log(formatedDate);
   const response = await fetch(
-    `http://localhost:3000/events/${encodeURIComponent(formatedDate)}`,
+    `http://localhost:3000/events/${encodeURIComponent(date)}`,
     {
       headers: {
         "Content-Type": "application/json",

@@ -23,7 +23,7 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }) {
     getEventsByDate(dateToURL).then((events) => {
       update(events);
       if (events.length === 1) {
-        navigate("/events/" + dateToURL + "/" + events[0].id);
+        navigate("/events/" + dateToURL + "/" + events[0]._id);
       } else {
         navigate("/events/" + dateToURL);
       }

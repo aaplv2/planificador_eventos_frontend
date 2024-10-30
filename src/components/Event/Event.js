@@ -21,7 +21,7 @@ function Event() {
 
   useEffect(() => {
     getEventById(id).then((data) => {
-      setEvent(data[0]);
+      setEvent(data.data);
     });
   }, []);
 

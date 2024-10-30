@@ -57,48 +57,26 @@ function EventActionPopout() {
 
     valuesData.append("file", image);
 
-    fetch("http://localhost:3000/upload", {
-      method: "POST",
-      body: valuesData,
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("jwt") || "",
-      },
-    })
-      .catch((err) => {
-        console.log(err);
-      })
-      .then((res) => {
-        console.log(res);
-      });
+    postEventAction(valuesData);
 
-    // formData.append("event", values);
-    // formData.append("event", file);
-
-    // update([]);
-    // postEventAction(values);
+    // fetch("http://localhost:3000/upload", {
+    //   method: "POST",
+    //   body: valuesData,
+    //   headers: {
+    //     Authorization: "Bearer " + localStorage.getItem("jwt") || "",
+    //   },
+    // })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //   });
   }
 
   function handleFileUpload(file) {
-    const image = file.target.files[0]; //[file]
-    // const imageData = new FormData();
-    // imageData.append("file", image);
-
+    const image = file.target.files[0];
     setImage(image);
-
-    // api.uploadImage(data)
-
-    // setFile(image.files);
-    // const reader = new FileReader();
-    // reader.onloadend = function() {
-    //   console.log('RESULT', reader.result)
-    // }
-    // reader.readAsDataURL(file)
-    // const reader = new FileReader();
-    // reader.onloadend = function () {
-    //   console.log("RESULT", reader.result);
-    // };
-    // reader.readAsDataURL(file);
-    // console.log(file);
   }
 
   return (

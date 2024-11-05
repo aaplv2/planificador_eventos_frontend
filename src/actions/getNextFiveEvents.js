@@ -1,4 +1,4 @@
-export async function getAllEvents() {
+export async function getNextFiveEvents() {
   const response = await fetch(`http://localhost:3000/events`, {
     method: "GET",
     headers: {

@@ -38,9 +38,9 @@ class Api {
     return this.getFetch("upload", "POST", { data });
   }
 
-  getAllEvents() {
-    return this.getFetch("events", "GET");
-  }
+  // getAllEvents() {
+  //   return this.getFetch("events", "GET");
+  // }
 }
 
 const api = new Api(

@@ -37,9 +37,8 @@ function Events() {
                 title={event.title}
                 date={event.date}
                 time={event.time}
-                location={event.location}
-                price={event.price}
-                slots={event.slots}
+                description={event.description}
+                image={event.image}
               />
               <Button onClick={() => handleGoClick(event.id)}>Ir</Button>
             </div>

@@ -21,8 +21,7 @@ function Main() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    api
-      .getAllEvents()
+    getAllEvents()
       .then((events) => {
         if (events.length === 0) return;
         setCarouselEvents(events);

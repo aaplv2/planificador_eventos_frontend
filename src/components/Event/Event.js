@@ -5,6 +5,7 @@ import RegisterForm from "../RegisterForm/RegisterForm";
 import AttendeesTable from "../AttendeesTable/AttendeesTable";
 import AddTaskPopout from "../AddTaskPopout/AddTaskPopout";
 import Map from "../Map/Map";
+//borrar profile
 import Profile from "../Profile/Profile";
 import { getEventById } from "../../actions/getEventById";
 import { useParams } from "react-router-dom";
@@ -35,6 +36,8 @@ function Event() {
         location={event.location}
         price={event.price}
         slots={event.slots}
+        image={event.image}
+        description={event.description}
         showTable
       />
       <RegisterForm event={event} setEvent={setEvent} />

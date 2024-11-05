@@ -29,10 +29,13 @@ function EventCard({
         <h2 className="event-card__titles-title">{title}</h2>
       </div>
       <div className="event-card__event">
-        <img
-          className="event-card__event-image"
-          src={image}
-          alt={title}        />
+        {image != undefined && (
+          <img
+            className="event-card__event-image"
+            src={"/" + image}
+            alt={title}
+          />
+        )}
         <p className="event-card__event-description">{description}</p>
       </div>
       {showTable && (

@@ -34,7 +34,7 @@ export default function RegisterForm({ event, setEvent }) {
   function onSubmit(values) {
     update([]);
     postRegisterToEvent({ attendees: [...event.attendees, values] }, id).then(
-      (data) => {
+      ({ data }) => {
         //data == array
         //data[0] == event
         setEvent(data);

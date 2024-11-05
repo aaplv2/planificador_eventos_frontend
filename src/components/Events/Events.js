@@ -21,10 +21,10 @@ function Events() {
     });
   }, []);
 
-  const handleGoClick = (id) => {
+  function handleGoClick(id) {
     const dateToURL = encodeURIComponent(date);
     navigate("/events/" + dateToURL + "/" + id);
-  };
+  }
 
   return (
     <div className="event">
@@ -33,14 +33,14 @@ function Events() {
           return (
             <div key={card} className="event__card">
               <EventCard
-                key={event.id}
+                key={event._id}
                 title={event.title}
                 date={event.date}
                 time={event.time}
                 description={event.description}
                 image={event.image}
               />
-              <Button onClick={() => handleGoClick(event.id)}>Ir</Button>
+              <Button onClick={() => handleGoClick(event._id)}>Ir</Button>
             </div>
           );
         })}

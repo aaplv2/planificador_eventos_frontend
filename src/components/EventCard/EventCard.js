@@ -9,7 +9,6 @@ import {
 } from "../Table/Table";
 
 function EventCard({
-  _id,
   title,
   date,
   time,
@@ -33,8 +32,7 @@ function EventCard({
         <img
           className="event-card__event-image"
           src={image}
-          alt="Próximo evento"
-        />
+          alt={title}        />
         <p className="event-card__event-description">{description}</p>
       </div>
       {showTable && (

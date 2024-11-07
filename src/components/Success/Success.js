@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   Table,
@@ -8,8 +8,21 @@ import {
   TableRow,
 } from "../Table/Table";
 import { Button } from "../Button/Button";
+import { useEventStore } from "../../stores/eventStore";
+import { useParams } from "react-router-dom";
+import { getEventById } from "../../actions/getEventById";
 
 function Success() {
+  const { id } = useParams();
+
+  const [event, setEvent] = useState({});
+
+  useEffect(() => {
+    getEventById(id).then((data) => {
+      setEvent(data.data);
+    });
+  }, []);
+
   return (
     <div className="success">
       <h2>Exito!</h2>
@@ -22,19 +35,19 @@ function Success() {
           <TableBody>
             <TableRow>
               <TableCell className="font-medium">Hora</TableCell>
-              <TableCell>19:00</TableCell>
+              <TableCell>{event.time}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell className="font-medium">Lugar</TableCell>
-              <TableCell>Direccion 878, barrio</TableCell>
+              <TableCell>{event.location}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell className="font-medium">Valor</TableCell>
-              <TableCell>$10000</TableCell>
+              <TableCell>{event.price}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell className="font-medium">Cupos</TableCell>
-              <TableCell>59/100</TableCell>
+              <TableCell>{event.slots}</TableCell>
             </TableRow>
           </TableBody>
         </Table>

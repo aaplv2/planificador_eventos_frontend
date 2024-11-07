@@ -14,7 +14,6 @@ import api from "../../utils/api";
 
 function Main() {
   const { isLoggedIn } = useProfileStore();
-
   const [nextEvent, setNextEvent] = useState({});
   const [carouselEvents, setCarouselEvents] = useState([]);
 
@@ -24,6 +23,7 @@ function Main() {
     getAllEvents()
       .then((events) => {
         if (events.length === 0) return;
+
         setCarouselEvents(events);
         setNextEvent(events[0]);
       })

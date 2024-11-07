@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { IconSignLeft, IconSignRight } from "@tabler/icons-react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
@@ -9,11 +9,20 @@ import { getEventsByDate } from "../../actions/getEventsByDate";
 import { useEventStore } from "../../stores/eventStore";
 
 function Calendar({ className, classNames, showOutsideDays = true, ...props }) {
-  const [selectedDay, setSelectedDay] = React.useState();
+  const [selectedDay, setSelectedDay] = useState();
+  // const [disabledDays, setDisabledDays] = useState([]);
 
   const navigate = useNavigate();
 
   const update = useEventStore((state) => state.update);
+
+  const disabledDays = { dayOfWeek: [0, 6] };
+
+  // useEffect(() => {
+  //   const date = day.toLocaleDateString();
+  //   const dateToURL = encodeURIComponent(date);
+  //   getEventsByDate(dateToURL).then(()=>{})
+  // }, []);
 
   const handleDayClick = (day) => {
     setSelectedDay(day);
@@ -33,11 +42,7 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }) {
     <DayPicker
       selected={selectedDay}
       onSelect={handleDayClick}
-      footer={
-        selectedDay
-          ? `Selected: ${selectedDay.toLocaleDateString()}`
-          : "Pick a day."
-      }
+      disabled={disabledDays}
       showOutsideDays={showOutsideDays}
       className={cn("p-3", className)}
       classNames={{

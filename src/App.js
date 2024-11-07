@@ -18,7 +18,7 @@ import { useProfileStore } from "./stores/profileStore";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
-  const { isLoggedIn, updateIsLoggedIn } = useProfileStore();
+  const { updateIsLoggedIn } = useProfileStore();
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     if (token) {
@@ -41,7 +41,7 @@ function App() {
         /> */}
         <Route path="/events/:date" element={<Events />} />
         <Route path="/events/:date/:id" element={<Event />} />
-        <Route path="/events/success" element={<Success />} />
+        <Route path="/events/:date/:id/success" element={<Success />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
       </Routes>

@@ -22,8 +22,8 @@ function EventsCarousel({ carouselEvents }) {
           <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/3">
             <div className="p-1">
               <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  {/* <span className="text-3xl font-semibold">{index + 1}</span> */}
+                <CardContent className="flex-column aspect-square items-center justify-center p-6">
+                  <h2>{event.title}</h2>
                   <img src={event.image} />
                 </CardContent>
               </Card>

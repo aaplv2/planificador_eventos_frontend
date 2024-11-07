@@ -11,7 +11,7 @@ import {
 } from "../Form/Form";
 import { Input } from "../Input/Input";
 import { postRegisterToEvent } from "../../actions/postRegisterToEvent";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEventStore } from "../../stores/eventStore";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "../../schemas/RegisterSchema";
@@ -19,7 +19,9 @@ import { registerSchema } from "../../schemas/RegisterSchema";
 export default function RegisterForm({ event, setEvent }) {
   const update = useEventStore((state) => state.update);
 
-  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const { id, date} = useParams();
 
   const form = useForm({
     defaultValues: {
@@ -35,10 +37,9 @@ export default function RegisterForm({ event, setEvent }) {
     update([]);
     postRegisterToEvent({ attendees: [...event.attendees, values] }, id).then(
       ({ data }) => {
-        //data == array
-        //data[0] == event
         setEvent(data);
-        //aca hay que cambiar el estado en donde este el evento
+        const dateToURL = encodeURIComponent(date);
+        navigate("/events/" + dateToURL + "/" + data._id + "/success");
       }
     );
   }

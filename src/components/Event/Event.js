@@ -4,7 +4,7 @@ import RegisterForm from "../RegisterForm/RegisterForm";
 
 import AttendeesTable from "../AttendeesTable/AttendeesTable";
 import AddTaskPopout from "../AddTaskPopout/AddTaskPopout";
-import Map from "../Map/Map";
+
 //borrar profile
 import Profile from "../Profile/Profile";
 import { getEventById } from "../../actions/getEventById";
@@ -12,6 +12,8 @@ import { useParams } from "react-router-dom";
 import TasksTable from "../TasksTable/TasksTable";
 import EventActionPopout from "../EventActionPopout/EventActionPopout";
 import { useProfileStore } from "../../stores/profileStore";
+import MapContainer from "../MapContainer/MapContainer";
+import Map from "../Map/Map";
 
 function Event() {
   const { isLoggedIn } = useProfileStore();
@@ -41,6 +43,7 @@ function Event() {
         showTable
       />
       <RegisterForm event={event} setEvent={setEvent} />
+      {/* <MapContainer /> */}
       <Map />
       {isLoggedIn ? (
         <>

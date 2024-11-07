@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { cn } from "../../lib/utils";
 import { getEventsByDate } from "../../actions/getEventsByDate";
 import { useEventStore } from "../../stores/eventStore";
+import { toast } from "react-toastify";
 
 function Calendar({ className, classNames, showOutsideDays = true, ...props }) {
   const [selectedDay, setSelectedDay] = useState();
@@ -16,7 +17,7 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }) {
 
   const update = useEventStore((state) => state.update);
 
-  const disabledDays = { dayOfWeek: [0, 6] };
+  // const disabledDays = { dayOfWeek: [0, 6] };
 
   // useEffect(() => {
   //   const date = day.toLocaleDateString();
@@ -28,21 +29,26 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }) {
     setSelectedDay(day);
     const date = day.toLocaleDateString();
     const dateToURL = encodeURIComponent(date);
-    getEventsByDate(dateToURL).then((events) => {
-      update(events);
-      if (events.length === 1) {
-        navigate("/events/" + dateToURL + "/" + events[0]._id);
-      } else {
-        navigate("/events/" + dateToURL);
-      }
-    });
+    getEventsByDate(dateToURL)
+      .then((events) => {
+        update(events);
+        if (events.length === 1) {
+          navigate("/events/" + dateToURL + "/" + events[0]._id);
+        } else {
+          navigate("/events/" + dateToURL);
+        }
+      })
+      .catch(() => {
+        toast("No hay evento");
+        // console.log("no hay evento");
+      });
   };
 
   return (
     <DayPicker
       selected={selectedDay}
       onSelect={handleDayClick}
-      disabled={disabledDays}
+      // disabled={disabledDays}
       showOutsideDays={showOutsideDays}
       className={cn("p-3", className)}
       classNames={{

@@ -16,6 +16,8 @@ import Success from "./components/Success/Success";
 import Events from "./components/Events/Events";
 import { useProfileStore } from "./stores/profileStore";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/ReactToastify.css";
 
 function App() {
   const { updateIsLoggedIn } = useProfileStore();
@@ -31,14 +33,6 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
-        {/* <Route
-          path="/events/:date"
-          element={
-            <ProtectedRoute isLoggedIn={isLoggedIn}>
-              <Events />
-            </ProtectedRoute>
-          }
-        /> */}
         <Route path="/events/:date" element={<Events />} />
         <Route path="/events/:date/:id" element={<Event />} />
         <Route path="/events/:date/:id/success" element={<Success />} />
@@ -46,6 +40,7 @@ function App() {
         <Route path="/signin" element={<Signin />} />
       </Routes>
       <Footer />
+      <ToastContainer />
     </div>
   );
 }

@@ -8,27 +8,37 @@ import {
   TableRow,
 } from "../Table/Table";
 import { Button } from "../Button/Button";
-import { useEventStore } from "../../stores/eventStore";
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { getEventById } from "../../actions/getEventById";
 
 function Success() {
   const { id } = useParams();
 
+  const navigate = useNavigate();
+
   const [event, setEvent] = useState({});
+  const [lastDigits, setLastDigits] = useState("");
 
   useEffect(() => {
-    getEventById(id).then((data) => {
-      setEvent(data.data);
+    getEventById(id).then(({ data }) => {
+      setEvent(data);
+      const digits = data._id.match(/\d+$/);
+      setLastDigits(digits ? digits[0] : "");
     });
   }, []);
 
+  function handleReturnButton() {
+    navigate(-1);
+  }
+
   return (
     <div className="success">
-      <h2>Exito!</h2>
-      <p>Registro al evento a sido exitoso.</p>
-      <p>Tu número de entrada es:</p>
-      <h3>ID O CODIGO RANDOM</h3>
+      <h2 className="success__title">Exito!</h2>
+      <div className="success__text">
+        <p>Registro al evento a sido exitoso.</p>
+        <p>Tu número de entrada es:</p>
+      </div>
+      <h3 className="success__code">{lastDigits}</h3>
       <div className="event-details">
         <Table>
           <TableHeader></TableHeader>
@@ -52,7 +62,7 @@ function Success() {
           </TableBody>
         </Table>
       </div>
-      <Button>Inicio</Button>
+      <Button onClick={handleReturnButton}>Inicio</Button>
     </div>
   );
 }

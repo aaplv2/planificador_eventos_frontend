@@ -13,6 +13,9 @@ export async function getEventsByDate(date) {
       },
     }
   );
+  if (response.status == 400) {
+    throw new Error("No se ha encontrado un evento en esa fecha");
+  }
   const data = await response.json();
   return data;
 }

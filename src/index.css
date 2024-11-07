@@ -86,6 +86,8 @@
 @import url(./components/Header/Header.css);
 @import url(./components/Main/Main.css);
 @import url(./components/EventCard/EventCard.css);
+@import url(./components/MapContainer/MapContainer.css);
 @import url(./components/Event/Event.css);
 @import url(./components/EventActionPopout/EventActionPopout.css);
+@import url(./components/Success/Success.css);
 @import url(./components/Footer/Footer.css);

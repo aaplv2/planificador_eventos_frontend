@@ -12,21 +12,21 @@ import { getUser } from "../../utils/auth";
 
 function Header() {
   const navigate = useNavigate();
-  const { email, updateEmail, isLoggedIn, updateIsLoggedIn } =
-    useProfileStore();
+  const { updateEmail, isLoggedIn, updateIsLoggedIn } = useProfileStore();
 
   const [token, setToken] = useState("");
   const [userEmail, setUserEmail] = useState("");
 
   useEffect(() => {
-    setToken(localStorage.getItem("jwt"));
+    const token = localStorage.getItem("jwt");
+    setToken(token);
     if (token) {
       getUser(token).then(({ data }) => {
         updateEmail(data.email);
         setUserEmail(data.email);
       });
     }
-  }, []);
+  }, [updateIsLoggedIn]);
 
   function handleRedirect() {
     navigate("/signin");
@@ -50,13 +50,6 @@ function Header() {
       >
         <IconHome />
       </Button>
-      {/* <nav className="header__nav">
-        <Navigation />
-      </nav> */}
-      {/* <IconMenu /> */}
-      {/* <HeaderDropdownMenu isLoggedIn={isLoggedIn}>
-        <IconMenu />
-      </HeaderDropdownMenu> */}
       {!isLoggedIn ? (
         <Button
           className="header__button-log bg-color-foreground hover:bg-primary/20"

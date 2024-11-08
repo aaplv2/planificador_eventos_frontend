@@ -85,6 +85,7 @@
 @import url(./components/Page.css);
 @import url(./components/Header/Header.css);
 @import url(./components/Main/Main.css);
+@import url(./components/EventsCarousel/EventsCarousel.css);
 @import url(./components/EventCard/EventCard.css);
 @import url(./components/MapContainer/MapContainer.css);
 @import url(./components/Event/Event.css);

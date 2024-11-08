@@ -19,7 +19,7 @@ import {
 } from "../Form/Form";
 import { useEventStore } from "../../stores/eventStore";
 import { useParams } from "react-router-dom";
-import { postRegisterToEvent } from "../../actions/postRegisterToEvent";
+import { postTaskToEvent } from "../../actions/postTaskToEvent";
 
 function AddTaskPopout({ event, setEvent }) {
   const update = useEventStore((state) => state.update);
@@ -37,11 +37,9 @@ function AddTaskPopout({ event, setEvent }) {
 
   function onSubmit(values) {
     update([]);
-    postRegisterToEvent({ tasks: [...event.tasks, values] }, id).then(
-      (data) => {
-        setEvent(data);
-      }
-    );
+    postTaskToEvent({ tasks: [...event.tasks, values] }, id).then(({data}) => {
+      setEvent(data);
+    });
   }
   return (
     <Dialog>

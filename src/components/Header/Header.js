@@ -35,6 +35,7 @@ function Header() {
   function handleSignOut() {
     localStorage.removeItem("jwt");
     updateIsLoggedIn(false);
+    navigate("..");
   }
 
   function handleHomeClick() {

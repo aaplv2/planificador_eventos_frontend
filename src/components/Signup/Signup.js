@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 function Signup() {
   return (
     <div className="signup">
-      <h2>Registrate</h2>
+      <h2 className="signup__title">Registrate</h2>
       <SignupForm />
-      <p className="signup__link">
+      <p className="signup__text">
         ¿Ya eres miembro? {""}
         <Link to="/signin">Inicia sesión aquí</Link>
       </p>

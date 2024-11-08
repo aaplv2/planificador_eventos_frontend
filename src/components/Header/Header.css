@@ -14,10 +14,15 @@
   background-color: none;
 }
 
+.header__button-log {
+  margin-right: 12px;
+}
+
 .header__user {
   color: white;
   padding: 0;
   margin-left: auto;
+  margin-right: 12px;
 }
 
 .header__nav {

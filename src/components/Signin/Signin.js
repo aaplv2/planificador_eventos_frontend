@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 function Signin() {
   return (
     <div className="signin">
-      <h2>Inicia Sesion</h2>
+      <h2 className="signin__title">Inicia Sesion</h2>
       <SigninForm />
       <div className="signin__link">
-        <p>
+        <p className="signin__text">
           ¿Aún no eres miembro? {""}
           <Link to="/signup">Regístrate aquí</Link>
         </p>

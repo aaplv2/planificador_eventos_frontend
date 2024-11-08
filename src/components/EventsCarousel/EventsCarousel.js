@@ -24,7 +24,7 @@ function EventsCarousel({ carouselEvents }) {
               <Card>
                 <CardContent className="flex-column aspect-square items-center justify-center p-6">
                   <h2 className="events-carousel__title">{event.title}</h2>
-                  <img src={event.image} />
+                  <img className="events-crousel__image" src={event.image} />
                 </CardContent>
               </Card>
             </div>

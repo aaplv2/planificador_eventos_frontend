@@ -1,0 +1,21 @@
+.signin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signin__title {
+  font-family: "ArvoRegular", serif;
+  font-weight: bold;
+  font-size: 28px;
+  color: #6e6e6e;
+  text-shadow: 0 2px white;
+  line-height: 1.3;
+  margin: 12px 0;
+}
+
+.signin__text {
+  font-size: 14px;
+  margin: 12px 0;
+}

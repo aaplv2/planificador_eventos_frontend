@@ -15,7 +15,30 @@
 
 .main-calendar {
   display: flex;
-  justify-content: center;
+  justify-content: center;  
+  background-color: white;
 }
 
+.rdp-root {
+  width: 100%;
+}
+
+.rdp-months {
+  width: 100%;
+  max-width: 100%!important;
+}
+
+.rdp-month {
+  width: 100%;
+  max-width: 100%!important;
+}
+
+.rdp-month_grid {
+  width: 100%;
+  max-width: 100%!important;
+}
+
+.rdp-day_button {
+  display: initial!important;
+}
 

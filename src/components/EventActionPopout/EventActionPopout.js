@@ -62,11 +62,11 @@ function EventActionPopout() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">
+        <Button className="fixed right-4 bottom-10" variant="outline">
           <IconPencil />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px] event__action-popout">
         <DialogDescription />
         <DialogTitle>Nuevo Evento</DialogTitle>
         <Form {...form}>

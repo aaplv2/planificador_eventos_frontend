@@ -8,8 +8,11 @@ import {
   CarouselPrevious,
 } from "../Carousel/Carousel";
 import { Card, CardContent } from "../Card/Card";
+import { useNavigate } from "react-router-dom";
 
 function EventsCarousel({ carouselEvents }) {
+  const navigate = useNavigate();
+
   return (
     <Carousel
       opts={{
@@ -24,7 +27,14 @@ function EventsCarousel({ carouselEvents }) {
               <Card>
                 <CardContent className="flex-column aspect-square items-center justify-center p-6">
                   <h2 className="events-carousel__title">{event.title}</h2>
-                  <img className="events-crousel__image" src={event.image} />
+                  <img
+                    className="events-crousel__image"
+                    src={event.image}
+                    onClick={() => {
+                      const dateToURL = encodeURIComponent(event.date);
+                      navigate("/events/" + dateToURL + "/" + event._id);
+                    }}
+                  />
                 </CardContent>
               </Card>
             </div>

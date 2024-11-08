@@ -7,6 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from "../Table/Table";
+import { DeleteEventPopout } from "../DeleteEventPopout/DeleteEventPopout";
 
 function EventCard({
   title,
@@ -20,6 +21,10 @@ function EventCard({
   showTable = false,
   showSubtitle = false,
 }) {
+  function handleDeleteClick() {
+    console.log("eliminar evento");
+  }
+
   return (
     <div className="event-card">
       <div className="event-card__titles">
@@ -27,6 +32,9 @@ function EventCard({
           <p className="event-card__titles-subtitle">Próximo Evento:</p>
         )}
         <h2 className="event-card__titles-title">{title}</h2>
+      </div>
+      <div className="event-card__button-delete">
+        <DeleteEventPopout />
       </div>
       <div className="event-card__event">
         {image != undefined && (

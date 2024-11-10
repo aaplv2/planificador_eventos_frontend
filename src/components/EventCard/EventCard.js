@@ -7,7 +7,8 @@ import {
   TableHeader,
   TableRow,
 } from "../Table/Table";
-import { DeleteEventPopout } from "../DeleteEventPopout/DeleteEventPopout";
+import DeleteEventPopout from "../DeleteEventPopout/DeleteEventPopout";
+import { useProfileStore } from "../../stores/profileStore";
 
 function EventCard({
   title,
@@ -20,10 +21,9 @@ function EventCard({
   description,
   showTable = false,
   showSubtitle = false,
+  showDeleteButton = false,
 }) {
-  function handleDeleteClick() {
-    console.log("eliminar evento");
-  }
+  const { isLoggedIn } = useProfileStore();
 
   return (
     <div className="event-card">
@@ -33,9 +33,13 @@ function EventCard({
         )}
         <h2 className="event-card__titles-title">{title}</h2>
       </div>
-      <div className="event-card__button-delete">
-        <DeleteEventPopout />
-      </div>
+      {isLoggedIn
+        ? showDeleteButton && (
+            <div className="event-card__button-delete">
+              <DeleteEventPopout className="font-arial" />
+            </div>
+          )
+        : ""}
       <div className="event-card__event">
         {image != undefined && (
           <img

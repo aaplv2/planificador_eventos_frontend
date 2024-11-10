@@ -1,3 +1,5 @@
+import { useNavigate, useParams } from "react-router-dom";
+import { deleteEventById } from "../../actions/deleteEventById";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -11,25 +13,42 @@ import {
 } from "../AlertDialog/AlertDialog";
 import { Button } from "../Button/Button";
 
-export function DeleteEventPopout() {
+function DeleteEventPopout() {
+  const { id } = useParams();
+
+  const navigate = useNavigate();
+
+  function handleConfirmClick() {
+    deleteEventById(id);
+    navigate("..");
+  }
+
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive" className="bg-primary-red hover:opacity-80">Show Dialog</Button>
+        <Button
+          variant="destructive"
+          className="bg-primary-red hover:bg-primary-red/80"
+        >
+          Eliminar Evento
+        </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-          <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
-          </AlertDialogDescription>
+          <AlertDialogDescription>{""}</AlertDialogDescription>
+          <AlertDialogTitle>
+            Confirmación de eliminación de evento
+          </AlertDialogTitle>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Continue</AlertDialogAction>
+          <AlertDialogCancel>Cancelar</AlertDialogCancel>
+          <AlertDialogAction onClick={handleConfirmClick}>
+            Continuar
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
   );
 }
+
+export default DeleteEventPopout;

@@ -42,6 +42,7 @@ function Event() {
           image={event.image}
           description={event.description}
           showTable
+          showDeleteButton
         />
       </div>
       <div className="event__form-register">

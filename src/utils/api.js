@@ -23,13 +23,13 @@ class Api {
     return this.getFetch("users/me", "GET");
   }
 
-  updateUserInfo(name, about) {
+  updateUserInfo(email, password) {
     return this.getFetch(
       "users/me",
       "PATCH",
       JSON.stringify({
-        name,
-        about,
+        email,
+        password,
       })
     );
   }
@@ -37,14 +37,10 @@ class Api {
   uploadImage(data) {
     return this.getFetch("upload", "POST", { data });
   }
-
-  // getAllEvents() {
-  //   return this.getFetch("events", "GET");
-  // }
 }
 
 const api = new Api(
-  // `https://api.aroundfull.chickenkiller.com`
+ 
   `http://localhost:3000`
 );
 

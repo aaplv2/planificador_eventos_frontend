@@ -22,7 +22,7 @@ function EventsCarousel({ carouselEvents }) {
     >
       <CarouselContent>
         {carouselEvents.map((event, index) => (
-          <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/3">
+          <CarouselItem key={index}>
             <div className="p-1">
               <Card>
                 <CardContent className="flex-column aspect-square items-center justify-center p-6">

@@ -36,7 +36,7 @@ function EventCard({
       {isLoggedIn
         ? showDeleteButton && (
             <div className="event-card__button-delete">
-              <DeleteEventPopout className="font-arial" />
+              <DeleteEventPopout />
             </div>
           )
         : ""}

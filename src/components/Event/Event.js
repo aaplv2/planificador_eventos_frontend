@@ -6,13 +6,11 @@ import AttendeesTable from "../AttendeesTable/AttendeesTable";
 import AddTaskPopout from "../AddTaskPopout/AddTaskPopout";
 
 //borrar profile
-import Profile from "../Profile/Profile";
 import { getEventById } from "../../actions/getEventById";
 import { useParams } from "react-router-dom";
 import TasksTable from "../TasksTable/TasksTable";
 import EventActionPopout from "../EventActionPopout/EventActionPopout";
 import { useProfileStore } from "../../stores/profileStore";
-import MapContainer from "../MapContainer/MapContainer";
 import Map from "../Map/Map";
 
 function Event() {

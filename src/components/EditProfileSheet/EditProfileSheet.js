@@ -7,6 +7,7 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
+  SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
@@ -22,6 +23,7 @@ import {
 } from "../Form/Form";
 import { Button } from "../Button/Button";
 import { Input } from "../Input/Input";
+import { updateUserInfo } from "../../actions/updateUserInfo";
 
 export function EditProfileSheet() {
   const update = useProfileStore((state) => state.update);
@@ -36,18 +38,23 @@ export function EditProfileSheet() {
   });
 
   function onSubmit(values) {
-    update(values.username, values.email);
+    // console.log(values);
+    updateUserInfo(values.username, values.email);
+    // update(values.username, values.email);
   }
 
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button className="bg-color-foreground hover:bg-primary/20">Editar</Button>
+        <Button className="bg-color-foreground hover:bg-primary/20">
+          Editar
+        </Button>
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
           <SheetTitle>Editar Perfíl</SheetTitle>
         </SheetHeader>
+        <SheetDescription>{""}</SheetDescription>
         <div className="grid gap-4 py-4">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-1">

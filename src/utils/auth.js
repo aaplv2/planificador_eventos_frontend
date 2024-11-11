@@ -1,5 +1,4 @@
 export const BASE_URL = `http://localhost:3000`;
-// "https://api.aroundfull.chickenkiller.com"
 
 export const register = (name, email, password) => {
   return fetch(`${BASE_URL}/signup`, {
@@ -43,7 +42,7 @@ export const authorize = (email, password) => {
 };
 
 export const getUser = (token) => {
-  return fetch(`${BASE_URL}/user/me`, {
+  return fetch(`${BASE_URL}/users/me`, {
     method: "GET",
     headers: {
       Accept: "application/json",

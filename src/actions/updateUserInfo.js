@@ -1,4 +1,4 @@
-export async function updateUserInfo(username, email) {
+export async function updateUserInfo(name, email) {
   const response = await fetch(`http://localhost:3000/users/me`, {
     method: "PATCH",
     headers: {
@@ -6,7 +6,7 @@ export async function updateUserInfo(username, email) {
       Authorization: "Bearer " + localStorage.getItem("jwt") || "",
     },
     body: JSON.stringify({
-      username,
+      name,
       email,
     }),
   });

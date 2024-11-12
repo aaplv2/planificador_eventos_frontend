@@ -30,7 +30,7 @@ export function EditProfileSheet() {
 
   const form = useForm({
     defaultValues: {
-      username: "",
+      name: "",
       email: "",
     },
     resolver: yupResolver(profileSchema),
@@ -38,9 +38,8 @@ export function EditProfileSheet() {
   });
 
   function onSubmit(values) {
-    // console.log(values);
-    updateUserInfo(values.username, values.email);
-    // update(values.username, values.email);
+    updateUserInfo(values.name, values.email);
+    update(values.name, values.email, true);
   }
 
   return (
@@ -60,12 +59,12 @@ export function EditProfileSheet() {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-1">
               <FormField
                 control={form.control}
-                name="username"
+                name="name"
                 render={({ field }) => (
                   <FormItem className="grid grid-cols-4 items-center gap-4">
                     <FormLabel className="text-right">Nombre</FormLabel>
                     <FormControl>
-                      <Input id="username" className="col-span-3" {...field} />
+                      <Input id="name" className="col-span-3" {...field} />
                     </FormControl>
                     <FormMessage className="col-span-full col-start-2" />
                   </FormItem>

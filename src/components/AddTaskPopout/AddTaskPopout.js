@@ -4,6 +4,7 @@ import {
   Dialog,
   DialogClose,
   DialogContent,
+  DialogDescription,
   DialogTitle,
   DialogTrigger,
 } from "../Dialog/Dialog";
@@ -37,9 +38,11 @@ function AddTaskPopout({ event, setEvent }) {
 
   function onSubmit(values) {
     update([]);
-    postTaskToEvent({ tasks: [...event.tasks, values] }, id).then(({data}) => {
-      setEvent(data);
-    });
+    postTaskToEvent({ tasks: [...event.tasks, values] }, id).then(
+      ({ data }) => {
+        setEvent(data);
+      }
+    );
   }
   return (
     <Dialog>
@@ -48,6 +51,7 @@ function AddTaskPopout({ event, setEvent }) {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogTitle>Añadir Tarea</DialogTitle>
+        <DialogDescription>{""}</DialogDescription>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-1">
             <FormField

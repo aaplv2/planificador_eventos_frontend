@@ -4,7 +4,7 @@ import Navigation from "../Navigation/Navigation";
 
 import logoMain1Path from "../../images/swtgo_2@2x.png";
 import { Button } from "../Button/Button";
-import { IconHome, IconMenu } from "@tabler/icons-react";
+import { IconHome } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 import { EditProfileSheet } from "../EditProfileSheet/EditProfileSheet";
 import { useProfileStore } from "../../stores/profileStore";

@@ -15,13 +15,15 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEventStore } from "../../stores/eventStore";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "../../schemas/RegisterSchema";
+import useTicketCodeStore from "../../stores/ticketCodeStore";
 
 export default function RegisterForm({ event, setEvent }) {
   const update = useEventStore((state) => state.update);
+  const { ticketCode, generateTicketCode } = useTicketCodeStore();
 
   const navigate = useNavigate();
 
-  const { id, date} = useParams();
+  const { id, date } = useParams();
 
   const form = useForm({
     defaultValues: {
@@ -34,14 +36,22 @@ export default function RegisterForm({ event, setEvent }) {
   });
 
   function onSubmit(values) {
+    generateTicketCode();
+    const newAttendee = {
+      name: values.name,
+      email: values.email,
+      phone: values.phone,
+      ticketCode: ticketCode,
+    };
     update([]);
-    postRegisterToEvent({ attendees: [...event.attendees, values] }, id).then(
-      ({ data }) => {
-        setEvent(data);
-        const dateToURL = encodeURIComponent(date);
-        navigate("/events/" + dateToURL + "/" + data._id + "/success");
-      }
-    );
+    postRegisterToEvent(
+      { attendees: [...event.attendees, newAttendee] },
+      id
+    ).then(({ data }) => {
+      setEvent(data);
+      const dateToURL = encodeURIComponent(date);
+      navigate("/events/" + dateToURL + "/" + data._id + "/success");
+    });
   }
 
   return (

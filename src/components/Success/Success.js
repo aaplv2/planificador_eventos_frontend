@@ -8,22 +8,22 @@ import {
   TableRow,
 } from "../Table/Table";
 import { Button } from "../Button/Button";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getEventById } from "../../actions/getEventById";
+import useTicketCodeStore from "../../stores/ticketCodeStore";
 
 function Success() {
+  const { ticketCode } = useTicketCodeStore();
+
   const { id } = useParams();
 
   const navigate = useNavigate();
 
   const [event, setEvent] = useState({});
-  const [lastDigits, setLastDigits] = useState("");
 
   useEffect(() => {
     getEventById(id).then(({ data }) => {
       setEvent(data);
-      const digits = data._id.match(/\d+$/);
-      setLastDigits(digits ? digits[0] : "");
     });
   }, []);
 
@@ -38,7 +38,7 @@ function Success() {
         <p>Registro al evento a sido exitoso.</p>
         <p>Tu número de entrada es:</p>
       </div>
-      <h3 className="success__code">{lastDigits}</h3>
+      <h3 className="success__code">{ticketCode}</h3>
       <div className="event-details">
         <Table>
           <TableHeader></TableHeader>
@@ -62,7 +62,7 @@ function Success() {
           </TableBody>
         </Table>
       </div>
-      <Button onClick={handleReturnButton}>Inicio</Button>
+      <Button onClick={handleReturnButton}>Volver a evento</Button>
     </div>
   );
 }

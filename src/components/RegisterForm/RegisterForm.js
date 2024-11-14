@@ -19,7 +19,8 @@ import useTicketCodeStore from "../../stores/ticketCodeStore";
 
 export default function RegisterForm({ event, setEvent }) {
   const update = useEventStore((state) => state.update);
-  const { ticketCode, generateTicketCode } = useTicketCodeStore();
+  const { ticketCode, generateTicketCode, setTicketCode } =
+    useTicketCodeStore();
 
   const navigate = useNavigate();
 
@@ -36,22 +37,16 @@ export default function RegisterForm({ event, setEvent }) {
   });
 
   function onSubmit(values) {
-    generateTicketCode();
-    const newAttendee = {
-      name: values.name,
-      email: values.email,
-      phone: values.phone,
-      ticketCode: ticketCode,
-    };
     update([]);
-    postRegisterToEvent(
-      { attendees: [...event.attendees, newAttendee] },
-      id
-    ).then(({ data }) => {
-      setEvent(data);
-      const dateToURL = encodeURIComponent(date);
-      navigate("/events/" + dateToURL + "/" + data._id + "/success");
-    });
+    postRegisterToEvent({ attendees: [...event.attendees, values] }, id).then(
+      ({ data }) => {
+        setEvent(data);
+        console.log(data);
+        setTicketCode(data.attendees[data.attendees.length - 1].attendeeTicket);
+        const dateToURL = encodeURIComponent(date);
+        navigate("/events/" + dateToURL + "/" + data._id + "/success");
+      }
+    );
   }
 
   return (

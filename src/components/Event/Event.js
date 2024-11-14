@@ -27,37 +27,40 @@ function Event() {
   }, []);
 
   return (
-    <div className="event">
-      <div className="event__card">
-        <EventCard
-          title={event.title}
-          key={event.id}
-          date={event.date}
-          time={event.time}
-          location={event.location}
-          price={event.price}
-          slots={event.slots}
-          image={event.image}
-          description={event.description}
-          showTable
-          showDeleteButton
-        />
+    <div className="event lg:grid lg:gap-8 lg:grid-cols-2">
+      <div>
+        <div className="event__card">
+          <EventCard
+            title={event.title}
+            key={event.id}
+            date={event.date}
+            time={event.time}
+            location={event.location}
+            price={event.price}
+            slots={event.slots}
+            image={event.image}
+            description={event.description}
+            showTable
+            showDeleteButton
+          />
+        </div>
+        <div className="event__form-register">
+          <RegisterForm event={event} setEvent={setEvent} />
+        </div>
       </div>
-      <div className="event__form-register">
-        <RegisterForm event={event} setEvent={setEvent} />
-      </div>
-      {/* <MapContainer /> */}
       <Map />
       {isLoggedIn ? (
         <>
-          <div className="event__table-attendees">
-            <AttendeesTable event={event} />
-          </div>
-          <div className="event__button-task">
-            <AddTaskPopout event={event} setEvent={setEvent} />
-          </div>
-          <div className="event__table-task">
-            <TasksTable event={event} />
+          <div>
+            <div className="event__table-attendees">
+              <AttendeesTable event={event} />
+            </div>
+            <div className="event__button-task">
+              <AddTaskPopout event={event} setEvent={setEvent} />
+            </div>
+            <div className="event__table-task">
+              <TasksTable event={event} />
+            </div>
           </div>
           <EventActionPopout />
         </>

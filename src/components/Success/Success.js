@@ -13,7 +13,7 @@ import { getEventById } from "../../actions/getEventById";
 import useTicketCodeStore from "../../stores/ticketCodeStore";
 
 function Success() {
-  const { ticketCode } = useTicketCodeStore();
+  const { ticketCode } = useTicketCodeStore(); 
 
   const { id } = useParams();
 

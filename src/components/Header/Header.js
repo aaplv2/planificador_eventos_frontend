@@ -12,7 +12,8 @@ import { getUser } from "../../utils/auth";
 
 function Header() {
   const navigate = useNavigate();
-  const { updateEmail, isLoggedIn, updateIsLoggedIn } = useProfileStore();
+  const { email, updateEmail, isLoggedIn, updateIsLoggedIn } =
+    useProfileStore();
 
   const [token, setToken] = useState("");
   const [userEmail, setUserEmail] = useState("");
@@ -60,9 +61,9 @@ function Header() {
         </Button>
       ) : (
         <>
-          <h2 className="header__user">{userEmail}</h2>
+          <h2 className="header__user hidden sm:block">{email}</h2>
           <Button
-            className="header__button-log bg-color-foreground hover:bg-primary/20"
+            className="header__button-log bg-color-foreground hover:bg-primary/20 hidden sm:block"
             onClick={handleSignOut}
           >
             Cerrar sesión

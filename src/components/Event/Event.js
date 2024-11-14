@@ -5,7 +5,6 @@ import RegisterForm from "../RegisterForm/RegisterForm";
 import AttendeesTable from "../AttendeesTable/AttendeesTable";
 import AddTaskPopout from "../AddTaskPopout/AddTaskPopout";
 
-//borrar profile
 import { getEventById } from "../../actions/getEventById";
 import { useParams } from "react-router-dom";
 import TasksTable from "../TasksTable/TasksTable";

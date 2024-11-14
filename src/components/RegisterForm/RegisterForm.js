@@ -41,7 +41,6 @@ export default function RegisterForm({ event, setEvent }) {
     postRegisterToEvent({ attendees: [...event.attendees, values] }, id).then(
       ({ data }) => {
         setEvent(data);
-        console.log(data);
         setTicketCode(data.attendees[data.attendees.length - 1].attendeeTicket);
         const dateToURL = encodeURIComponent(date);
         navigate("/events/" + dateToURL + "/" + data._id + "/success");

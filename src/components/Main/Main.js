@@ -7,10 +7,7 @@ import { Button } from "../Button/Button";
 import EventActionPopout from "../EventActionPopout/EventActionPopout";
 import { useProfileStore } from "../../stores/profileStore";
 import { useNavigate } from "react-router-dom";
-import { useEventStore } from "../../stores/eventStore";
 import { getAllEvents } from "../../actions/getAllEvents";
-import dayjs from "dayjs";
-import api from "../../utils/api";
 
 function Main() {
   const { isLoggedIn } = useProfileStore();

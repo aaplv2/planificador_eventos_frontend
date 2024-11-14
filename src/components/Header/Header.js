@@ -8,7 +8,8 @@ import { IconHome } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 import { EditProfileSheet } from "../EditProfileSheet/EditProfileSheet";
 import { useProfileStore } from "../../stores/profileStore";
-import { getUser } from "../../utils/auth";
+import { getUser } from "../../actions/getUser";
+
 
 function Header() {
   const navigate = useNavigate();

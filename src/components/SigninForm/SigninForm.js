@@ -10,11 +10,13 @@ import {
   FormMessage,
 } from "../Form/Form";
 import { Input } from "../Input/Input";
-import { authorize, getUser } from "../../utils/auth";
+
 import { useNavigate } from "react-router-dom";
 import { useProfileStore } from "../../stores/profileStore";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signinSchma } from "../../schemas/SigninSchema";
+import { authorize } from "../../actions/authorize";
+import { getUser } from "../../actions/getUser";
 
 export default function SigninForm() {
   const navigate = useNavigate();

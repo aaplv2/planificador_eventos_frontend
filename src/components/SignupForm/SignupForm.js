@@ -10,10 +10,12 @@ import {
   FormMessage,
 } from "../Form/Form";
 import { Input } from "../Input/Input";
-import { register } from "../../utils/auth";
+
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signupSchma } from "../../schemas/SignupSchema";
 import { useNavigate } from "react-router-dom";
+import { register } from "../../actions/register";
+
 
 export default function SignupForm() {
   const navigate = useNavigate();

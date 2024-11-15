@@ -1,5 +1,5 @@
 export async function actionFecth(url, method, headers, body) {
-  const BASE_URL = "http://localhost:3000";
+  const BASE_URL = "https://planificador-eventos-backend.vercel.app";
 
   const response = await fetch(`${BASE_URL + url}`, {
     method: method,

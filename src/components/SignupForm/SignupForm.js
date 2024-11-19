@@ -68,6 +68,7 @@ export default function SignupForm() {
         <FormField
           control={form.control}
           name="password"
+          type="password"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Contraseña</FormLabel>

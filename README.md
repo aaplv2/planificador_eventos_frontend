@@ -1,70 +1,167 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Planificador de eventos
 
-## Available Scripts
+Sitio web que es una extensión de la página www.swingtiago.com, la cuál permite a los administradores agendar eventos en una fecha determinada, detallando lugar, hora, fecha, precio y cupos. Y en donde un usuario no administrador puede interactuar con un calendario para revisar detalles y registrarse a dicho evento.
 
-In the project directory, you can run:
+Los administradores pueden:
+- Crear cuenta.
+- Iniciar y cerrar sesión.
+- Editar detalles de su perfil.
+- Crear un evento.
+- Eliminar un evento. 
+- Añadir tareas a un evento visibles solo para el equipo de producción.
 
-### `npm start`
+Los usuarios pueden: 
+- Revisar en la página principal el calendario, el carrusel y la sección de próximo evento para entrar a estos enlaces.
+- Registarse a un evento y recibir un código que identifique su registro.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tecnologías
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Client:** React, TailwindCSS, Tabler, Google, Yup, Zustand, Shadcn
 
-### `npm test`
+**Server:** Node, Express, Mongodb, Celebrate, Dayjs, Multer
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Usos de herramientas en Frontend
 
-### `npm run build`
+- Componentes de biblioteca Shadcn.
+- Iconos de librería Tabler
+- Mapa de Google.
+- Validador Yup.
+- Almacen de contexto Zustand. 
+- Diseño por medio de Tailwind.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usos de herramientas en Backend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Express como base de maquetación.
+- Bcrypt para hash de token. 
+- Validador Celebrate.
+- Normativa Cors para seguridad.
+- Dayjs para gestionar fechas.
+- Base de datos Mongoose.
+- Multer para guardar archivo. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Shadcn
 
-### `npm run eject`
+- AlertDialog
+- Dialog
+- Table
+- Button
+- Calendar
+- Carousel
+- Sheet
+- Form
+- Input
+- Label
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Dominios
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ - [Frontend](planificador-eventos-frontend.vercel.app)
+ - [Backend](https://github.com/matiassingers/awesome-readme)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## API 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### register
 
-## Learn More
+```http
+  POST /signup
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Parameter  | Type      |
+| :--------  | :-------  |
+| `name`     | `string`  |
+| `email`    | `string`  | 
+| `password` | `string`  | 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### authorize
 
-### Code Splitting
+```http
+  POST /signin
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| Parameter  | Type      |
+| :--------  | :-------  |
+| `email`    | `string`  | 
+| `password` | `string`  | 
 
-### Analyzing the Bundle Size
+#### getUser
+```http
+  GET /users/me
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+| Parameter  | Type      |
+| :--------  | :-------  |
+| `token`    | `string`  | 
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### updateUserInfo
+```http
+  PATCH /users/me
+```
 
-### Advanced Configuration
+| Parameter  | Type      |
+| :--------  | :-------  |
+| `name`     | `string`  |
+| `email`    | `string`  | 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### getAllEvents
+```http
+  GET /events
+```
 
-### Deployment
+#### getEventsByDate
+```http
+  GET /events/${encodeURIComponent(date)}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+| Parameter  | Type      |
+| :--------  | :-------  |
+| `date`    | `string`  | 
 
-### `npm run build` fails to minify
+#### getEventsById
+```http
+  GET /events/date/${id}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| Parameter  | Type      |
+| :--------  | :-------  |
+| `id`    | `string`  | 
+
+#### postEventAction
+```http
+  POST /events
+```
+
+| Parameter  | Type      | Description |
+| :--------  | :-------  | :-------  |
+| `valuesData`    | `object`  | Valores de EventAction
+
+#### postRegisterToEvent
+```http
+  PATCH /events/${id}/attendees
+```
+
+| Parameter  | Type      | Description |
+| :--------  | :-------  | :-------  |
+| `id`    | `string`  | 
+| `body`    | `object`  | Valores de RegisterForm
+
+#### postTaskToEvent
+```http
+  PATCH /events/${id}/tasks
+```
+
+| Parameter  | Type      | Description |
+| :--------  | :-------  | :-------  |
+| `id`    | `string`  | 
+| `body`    | `object`  | Valores de AddTaskForm
+
+## Autor
+
+- [@aaplv2](https://github.com/aaplv2)
+
+
+
+
+
+
+

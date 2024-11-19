@@ -68,7 +68,6 @@ export default function SignupForm() {
         <FormField
           control={form.control}
           name="password"
-          type="password"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Contraseña</FormLabel>
@@ -86,7 +85,7 @@ export default function SignupForm() {
             <FormItem>
               <FormLabel>Confirmar contraseña</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input type="password" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

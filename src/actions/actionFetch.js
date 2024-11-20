@@ -5,6 +5,7 @@ export async function actionFecth(url, method, headers, body) {
     method: method,
     headers: headers,
     body: body,
+    mode: 'no-cors'
   });
   const data = await response.json();
   return data;

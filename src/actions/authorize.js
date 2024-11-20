@@ -1,15 +1,26 @@
 import { actionFecth } from "./actionFetch";
 
 export async function authorize(email, password) {
-  return actionFecth(
-    "/signin",
-    "POST",
-    {
+  // return actionFecth(
+  //   "/signin",
+  //   "POST",
+  //   {
+  //     Accept: "application/json",
+  //     "Content-Type": "application/json",
+  //   },
+  //   JSON.stringify({ email, password })
+  // )
+  return fetch("https://planificador-eventos-backend.vercel.app/signin", {
+    method: "POST",
+    headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    JSON.stringify({ email, password })
-  )
+    body: JSON.stringify({ email, password }),
+  })
+    .then((res) => {
+      return res.json();
+    })
     .then((data) => {
       if (data.token) {
         localStorage.setItem("jwt", data.token);

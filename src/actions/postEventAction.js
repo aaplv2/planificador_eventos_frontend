@@ -14,6 +14,7 @@ export async function postEventAction(valuesData) {
     headers: {
       Authorization: "Bearer " + localStorage.getItem("jwt") || "",
     },
+    body: valuesData,
   }).then((res) => {
     return res.json();
   });

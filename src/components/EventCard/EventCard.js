@@ -44,7 +44,7 @@ function EventCard({
         {image != undefined && (
           <img
             className="event-card__event-image"
-            src={"/" + image}
+            src={"http://planificador-eventos-backend.vercel.app/" + image}
             alt={title}
           />
         )}

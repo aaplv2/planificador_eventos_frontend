@@ -6,7 +6,7 @@ export async function getUser(token) {
   //   "Content-Type": "application/json",
   //   Authorization: `Bearer ${token}`,
   // })
-  return fetch("https://planificador-eventos-backend.vercel.app//users/me", {
+  return fetch("https://planificador-eventos-backend.vercel.app/users/me", {
     method: "GET",
     headers: {
       Accept: "application/json",

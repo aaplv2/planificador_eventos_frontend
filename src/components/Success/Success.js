@@ -32,7 +32,7 @@ function Success() {
   }
 
   return (
-    <div className="success">
+    <div className="success mt-5 mb-5">
       <h2 className="success__title">Exito!</h2>
       <div className="success__text">
         <p>Registro al evento a sido exitoso.</p>

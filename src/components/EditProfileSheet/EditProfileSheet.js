@@ -24,6 +24,7 @@ import {
 import { Button } from "../Button/Button";
 import { Input } from "../Input/Input";
 import { updateUserInfo } from "../../actions/updateUserInfo";
+import { IconMenu, IconMenu2 } from "@tabler/icons-react";
 
 export function EditProfileSheet() {
   const update = useProfileStore((state) => state.update);
@@ -46,7 +47,7 @@ export function EditProfileSheet() {
     <Sheet>
       <SheetTrigger asChild>
         <Button className="bg-color-foreground hover:bg-primary/20">
-          Editar
+          <IconMenu2 />
         </Button>
       </SheetTrigger>
       <SheetContent>

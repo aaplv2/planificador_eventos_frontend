@@ -24,10 +24,6 @@ import { postEventAction } from "../../actions/postEventAction";
 import { Label } from "../Label/Label";
 
 function EventActionPopout() {
-  // const update = useEventStore((state) => state.update);
-  // const event = useEventStore();
-
-  // const [file, setFile] = useState({});
   const [image, setImage] = useState({});
 
   const form = useForm({
@@ -173,7 +169,7 @@ function EventActionPopout() {
               <Button type="submit">Confirmar</Button>
             </DialogClose>
             <DialogClose asChild>
-              <Button>Cancelar</Button>
+              <Button className="ml-2" >Cancelar</Button>
             </DialogClose>
           </form>
         </Form>

@@ -105,7 +105,7 @@ function AddTaskPopout({ event, setEvent }) {
             <DialogClose asChild>
               <Button type="submit">Confirmar</Button>
             </DialogClose>
-            <Button>Cancelar</Button>
+            <Button className="ml-2" >Cancelar</Button>
           </form>
         </Form>
       </DialogContent>

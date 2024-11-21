@@ -48,7 +48,9 @@ function EventActionPopout() {
 
     valuesData.append("file", image);
 
-    postEventAction(valuesData);
+    postEventAction(valuesData).then(() => {
+      window.location.reload();
+    });
   }
 
   function handleFileUpload(file) {

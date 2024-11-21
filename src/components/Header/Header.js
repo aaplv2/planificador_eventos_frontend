@@ -15,15 +15,14 @@ function Header() {
     useProfileStore();
 
   const [token, setToken] = useState("");
-  const [userEmail, setUserEmail] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     setToken(token);
     if (token) {
+      console.log(token)
       getUser(token).then(({ data }) => {
         updateEmail(data.email);
-        setUserEmail(data.email);
       });
     }
   }, [updateIsLoggedIn]);

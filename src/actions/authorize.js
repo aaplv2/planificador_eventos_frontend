@@ -1,15 +1,4 @@
-import { actionFecth } from "./actionFetch";
-
 export async function authorize(email, password) {
-  // return actionFecth(
-  //   "/signin",
-  //   "POST",
-  //   {
-  //     Accept: "application/json",
-  //     "Content-Type": "application/json",
-  //   },
-  //   JSON.stringify({ email, password })
-  // )
   return fetch("https://planificador-eventos-backend.vercel.app/signin", {
     method: "POST",
     headers: {

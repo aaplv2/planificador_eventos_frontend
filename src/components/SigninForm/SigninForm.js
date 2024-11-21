@@ -17,6 +17,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { signinSchma } from "../../schemas/SigninSchema";
 import { authorize } from "../../actions/authorize";
 import { getUser } from "../../actions/getUser";
+import { toast } from "react-toastify";
 
 export default function SigninForm() {
   const navigate = useNavigate();
@@ -33,11 +34,15 @@ export default function SigninForm() {
 
   function onSubmit(values) {
     authorize(values.email, values.password).then((data) => {
-      updateIsLoggedIn(true);
-      getUser(data.token).then(({ data }) => {
-        updateEmail(data.email);
-      });
-      navigate("/");
+      if (data) {
+        updateIsLoggedIn(true);
+        getUser(data.token).then(({ data }) => {
+          updateEmail(data.email);
+        });
+        navigate("/");
+      } else {
+        toast.error("No existe el usuario");
+      }
     });
   }
 

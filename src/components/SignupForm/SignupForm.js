@@ -16,7 +16,6 @@ import { signupSchma } from "../../schemas/SignupSchema";
 import { useNavigate } from "react-router-dom";
 import { register } from "../../actions/register";
 
-
 export default function SignupForm() {
   const navigate = useNavigate();
 

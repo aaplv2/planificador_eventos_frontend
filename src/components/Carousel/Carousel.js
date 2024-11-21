@@ -8,7 +8,6 @@ import { Button } from "../Button/Button";
 const CarouselContext = React.createContext(null);
 
 function useCarousel() {
-  //get range start end
   const context = React.useContext(CarouselContext);
 
   if (!context) {

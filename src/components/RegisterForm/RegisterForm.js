@@ -19,8 +19,7 @@ import useTicketCodeStore from "../../stores/ticketCodeStore";
 
 export default function RegisterForm({ event, setEvent }) {
   const update = useEventStore((state) => state.update);
-  const { ticketCode, generateTicketCode, setTicketCode } =
-    useTicketCodeStore();
+  const { setTicketCode } = useTicketCodeStore();
 
   const navigate = useNavigate();
 

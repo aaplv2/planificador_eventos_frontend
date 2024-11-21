@@ -24,7 +24,7 @@ import {
 import { Button } from "../Button/Button";
 import { Input } from "../Input/Input";
 import { updateUserInfo } from "../../actions/updateUserInfo";
-import { IconMenu, IconMenu2 } from "@tabler/icons-react";
+import { IconMenu2 } from "@tabler/icons-react";
 
 export function EditProfileSheet() {
   const update = useProfileStore((state) => state.update);

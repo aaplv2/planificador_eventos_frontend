@@ -20,7 +20,6 @@ function Header() {
     const token = localStorage.getItem("jwt");
     setToken(token);
     if (token) {
-      console.log(token)
       getUser(token).then(({ data }) => {
         updateEmail(data.email);
       });

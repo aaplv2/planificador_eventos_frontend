@@ -29,10 +29,7 @@ function EventsCarousel({ carouselEvents }) {
                   <h2 className="events-carousel__title">{event.title}</h2>
                   <img
                     className="events-crousel__image"
-                    src={
-                      "https://planificador-eventos-backend.vercel.app/" +
-                      event.image
-                    }
+                    src={event.image}
                     onClick={() => {
                       const dateToURL = encodeURIComponent(event.date);
                       navigate("/events/" + dateToURL + "/" + event._id);

@@ -22,6 +22,7 @@ import { DialogClose, DialogTitle } from "@radix-ui/react-dialog";
 import { useEventStore } from "../../stores/eventStore";
 import { postEventAction } from "../../actions/postEventAction";
 import { Label } from "../Label/Label";
+import { UploadButton } from "../UploadButton/UploadButton";
 
 function EventActionPopout() {
   const [image, setImage] = useState({});
@@ -151,7 +152,7 @@ function EventActionPopout() {
                 </FormItem>
               )}
             />
-
+            {/* <UploadButton>Subir Imagen</UploadButton> */}
             <Button
               type="button"
               className="px-0 py-0 w-full max-w-sm"
@@ -169,7 +170,7 @@ function EventActionPopout() {
               <Button type="submit">Confirmar</Button>
             </DialogClose>
             <DialogClose asChild>
-              <Button className="ml-2" >Cancelar</Button>
+              <Button className="ml-2">Cancelar</Button>
             </DialogClose>
           </form>
         </Form>
